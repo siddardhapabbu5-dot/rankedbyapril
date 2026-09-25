@@ -9,8 +9,8 @@ export const siteConfig = {
   url: process.env.NEXT_PUBLIC_SITE_URL || "https://rankedbyapril.com",
   ogImage: "/og-image.jpg",
   email: "hello@rankedbyapril.com",
-  phone: "+1 (555) 014-2024",
-  whatsapp: "15550142024",
+  phone: process.env.NEXT_PUBLIC_PHONE || "+1 (415) 941-2024",
+  whatsapp: process.env.NEXT_PUBLIC_WHATSAPP || "14159412024",
   calendly: "https://calendly.com/rankedbyapril/strategy-call",
   address: {
     street: "1200 Market Street, Suite 400",
@@ -31,8 +31,7 @@ export const siteConfig = {
 } as const;
 
 export const mainNav: NavItem[] = [
-  { title: "Home", href: "/" },
-  { title: "About", href: "/about" },
+  { title: "Results", href: "/#results" },
   {
     title: "Services",
     href: "/services",
@@ -79,9 +78,9 @@ export const mainNav: NavItem[] = [
       },
     ],
   },
-  { title: "Portfolio", href: "/portfolio" },
+  { title: "Case Studies", href: "/portfolio" },
   { title: "Blog", href: "/blog" },
-  { title: "Contact", href: "/contact" },
+  { title: "About", href: "/about" },
 ];
 
 export const footerNav = {
@@ -94,9 +93,10 @@ export const footerNav = {
     { title: "White Label SEO", href: "/services/white-label-seo" },
   ],
   company: [
-    { title: "About", href: "/about" },
-    { title: "Portfolio", href: "/portfolio" },
+    { title: "Services", href: "/services" },
+    { title: "Case Studies", href: "/portfolio" },
     { title: "Blog", href: "/blog" },
+    { title: "About", href: "/about" },
     { title: "Contact", href: "/contact" },
   ],
   legal: [

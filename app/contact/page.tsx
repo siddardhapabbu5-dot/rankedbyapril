@@ -1,6 +1,5 @@
 import Link from "next/link";
 import { Breadcrumbs } from "@/components/shared/breadcrumbs";
-import { ContactCta } from "@/components/shared/contact-cta";
 import { ContactForm } from "@/components/forms/contact-form";
 import { FadeIn, SectionHeading } from "@/components/shared/section-heading";
 import { Button } from "@/components/ui/button";
@@ -35,6 +34,7 @@ export default function ContactPage() {
           <Breadcrumbs items={[{ label: "Contact" }]} />
           <FadeIn>
             <SectionHeading
+              as="h1"
               eyebrow="Contact"
               title="Tell us what you're trying to grow"
               description="Share your site and goals. We'll reply within one business day — often with a free mini audit."
@@ -63,7 +63,12 @@ export default function ContactPage() {
                 Prefer calendar booking? Grab a strategy slot on Calendly.
               </p>
               <Button asChild className="mt-5 w-full">
-                <a href={siteConfig.calendly} target="_blank" rel="noopener noreferrer">
+                <a
+                  href={siteConfig.calendly}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  data-analytics="calendly_click"
+                >
                   <Calendar className="h-4 w-4" />
                   Open Calendly
                 </a>

@@ -126,6 +126,25 @@ export function articleSchema({
   };
 }
 
+export function personSchema() {
+  return {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    name: "April Reyes",
+    jobTitle: "Founder & Organic Growth Specialist",
+    url: `${siteConfig.url}/about`,
+    image: `${siteConfig.url}/images/april-portrait.jpg`,
+    worksFor: {
+      "@type": "Organization",
+      name: siteConfig.legalName,
+      url: siteConfig.url,
+    },
+    sameAs: Object.values(siteConfig.social),
+    email: siteConfig.email,
+    telephone: siteConfig.phone,
+  };
+}
+
 export function serviceSchema({
   name,
   description,

@@ -5,17 +5,38 @@ import { footerNav, siteConfig } from "@/lib/site-config";
 
 export function Footer() {
   const year = new Date().getFullYear();
+  const socialLinks = [
+    { label: "LinkedIn", href: siteConfig.social.linkedin },
+    { label: "Twitter / X", href: siteConfig.social.twitter },
+    { label: "Instagram", href: siteConfig.social.instagram },
+  ];
 
   return (
-    <footer className="border-t border-brand-ink/10 bg-brand-surface dark:border-white/10 dark:bg-brand-surface">
+    <footer className="border-t border-brand-ink/10 bg-brand-surface pb-20 dark:border-white/10 dark:bg-brand-surface sm:pb-0">
       <div className="container-page section-pad !pb-10 !pt-14">
         <div className="grid gap-10 md:grid-cols-2 lg:grid-cols-12">
           <div className="lg:col-span-4">
-            <Logo showTagline />
+            <Logo />
+            <p className="mt-2 text-[10px] font-medium uppercase tracking-[0.2em] text-brand-muted">
+              SEO. Websites. AI Growth.
+            </p>
             <p className="mt-5 max-w-sm text-sm leading-relaxed text-brand-muted">
               Premium SEO, AI search optimization, and websites that turn visibility into
               pipeline. Built for brands that want organic growth that compounds.
             </p>
+            <div className="mt-5 flex flex-wrap gap-x-4 gap-y-2">
+              {socialLinks.map((link) => (
+                <a
+                  key={link.href}
+                  href={link.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-sm font-medium text-brand-muted transition-colors hover:text-brand-accent"
+                >
+                  {link.label}
+                </a>
+              ))}
+            </div>
             <div className="mt-6">
               <p className="mb-2 text-sm font-semibold text-brand-ink dark:text-white">
                 Newsletter

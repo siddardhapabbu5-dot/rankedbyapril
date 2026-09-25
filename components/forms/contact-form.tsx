@@ -1,14 +1,17 @@
 "use client";
 
+import { useRouter } from "next/navigation";
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
+import { trackEvent } from "@/lib/analytics";
 import { services } from "@/lib/data/services";
 
 export function ContactForm() {
-  const [status, setStatus] = useState<"idle" | "loading" | "success" | "error">("idle");
+  const router = useRouter();
+  const [status, setStatus] = useState<"idle" | "loading" | "error">("idle");
 
   async function onSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
@@ -23,31 +26,22 @@ export function ContactForm() {
         body: JSON.stringify(data),
       });
       if (!res.ok) throw new Error("Failed");
-      setStatus("success");
-      form.reset();
+      trackEvent("generate_lead", {
+        service: String(data.service || "unspecified"),
+      });
+      router.push("/thank-you");
     } catch {
       setStatus("error");
     }
   }
 
-  if (status === "success") {
-    return (
-      <div className="rounded-2xl border border-brand-accent/30 bg-brand-accent/5 p-8 text-center">
-        <h3 className="font-display text-xl font-bold text-brand-ink dark:text-white">
-          Message received
-        </h3>
-        <p className="mt-2 text-sm text-brand-muted">
-          We&apos;ll reply within one business day with next steps.
-        </p>
-        <Button className="mt-6" onClick={() => setStatus("idle")}>
-          Send another message
-        </Button>
-      </div>
-    );
-  }
-
   return (
-    <form onSubmit={onSubmit} className="space-y-5">
+    <form onSubmit={onSubmit} className="relative space-y-5">
+      <div aria-hidden="true" className="absolute -left-[9999px] top-auto h-0 w-0 overflow-hidden">
+        <label htmlFor="website">Website</label>
+        <input id="website" name="website" type="text" tabIndex={-1} autoComplete="off" />
+      </div>
+
       <div className="grid gap-5 sm:grid-cols-2">
         <div className="space-y-2">
           <Label htmlFor="name">Full name *</Label>

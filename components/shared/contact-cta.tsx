@@ -36,7 +36,7 @@ export function ContactCta({
               </p>
               <div className="mt-8 flex flex-wrap gap-3">
                 <Button asChild size="lg">
-                  <Link href="/contact">
+                  <Link href="/contact" data-analytics="contact_cta_click">
                     Book a strategy call
                     <ArrowRight className="h-4 w-4" />
                   </Link>

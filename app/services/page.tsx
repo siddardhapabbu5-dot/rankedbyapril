@@ -51,6 +51,7 @@ export default function ServicesPage() {
           <Breadcrumbs items={[{ label: "Services" }]} />
           <FadeIn>
             <SectionHeading
+              as="h1"
               eyebrow="Services"
               title="Full-stack organic growth — not disconnected deliverables"
               description="Strategy, technical depth, content, AI visibility, and websites under one operating system."

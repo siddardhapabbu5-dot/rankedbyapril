@@ -1,116 +1,63 @@
 "use client";
 
-import { useMemo, useState } from "react";
 import Link from "next/link";
 import type { BlogPost } from "@/types";
-import { Badge } from "@/components/ui/badge";
-import { Input } from "@/components/ui/input";
-import { formatDate } from "@/lib/utils";
-import { authors } from "@/lib/authors";
+import { ArrowUpRight } from "lucide-react";
 
-export function BlogIndex({
-  posts,
-  categories,
-}: {
-  posts: BlogPost[];
-  categories: string[];
-}) {
-  const [query, setQuery] = useState("");
-  const [category, setCategory] = useState("all");
+function formatMonthYear(date: string) {
+  return new Intl.DateTimeFormat("en-US", {
+    month: "short",
+    year: "numeric",
+  }).format(new Date(date));
+}
 
-  const filtered = useMemo(() => {
-    return posts.filter((post) => {
-      const matchesCategory =
-        category === "all" || post.category.toLowerCase() === category.toLowerCase();
-      const q = query.trim().toLowerCase();
-      const matchesQuery =
-        !q ||
-        post.title.toLowerCase().includes(q) ||
-        post.description.toLowerCase().includes(q) ||
-        post.tags.some((t) => t.toLowerCase().includes(q));
-      return matchesCategory && matchesQuery;
-    });
-  }, [posts, query, category]);
-
+export function BlogIndex({ posts }: { posts: BlogPost[] }) {
   return (
     <div>
-      <div className="flex flex-col gap-4 md:flex-row md:items-center md:justify-between">
-        <Input
-          type="search"
-          placeholder="Search articles…"
-          value={query}
-          onChange={(e) => setQuery(e.target.value)}
-          className="md:max-w-sm"
-          aria-label="Search blog posts"
-        />
-        <div className="flex flex-wrap gap-2">
-          <button
-            type="button"
-            onClick={() => setCategory("all")}
-            className={`rounded-md px-3 py-1.5 text-sm font-semibold ${
-              category === "all"
-                ? "bg-brand-accent text-white"
-                : "bg-brand-surface text-brand-muted dark:bg-white/5"
-            }`}
+      <div className="grid gap-5 md:grid-cols-2">
+        {posts.map((post) => (
+          <article
+            key={post.slug}
+            className="flex h-full flex-col rounded-2xl border border-brand-ink/10 bg-white p-6 transition-shadow hover:shadow-lg dark:border-white/10 dark:bg-brand-surface md:p-7"
           >
-            All
-          </button>
-          {categories.map((cat) => (
-            <button
-              key={cat}
-              type="button"
-              onClick={() => setCategory(cat)}
-              className={`rounded-md px-3 py-1.5 text-sm font-semibold ${
-                category === cat
-                  ? "bg-brand-accent text-white"
-                  : "bg-brand-surface text-brand-muted dark:bg-white/5"
-              }`}
-            >
-              {cat}
-            </button>
-          ))}
-        </div>
-      </div>
-
-      <div className="mt-10 grid gap-6 md:grid-cols-2">
-        {filtered.map((post) => {
-          const author = authors[post.author];
-          return (
-            <article
-              key={post.slug}
-              className="flex flex-col overflow-hidden rounded-2xl border border-brand-ink/10 bg-white dark:border-white/10 dark:bg-brand-surface"
-            >
-              <div className="aspect-[16/9] bg-gradient-to-br from-brand-navy to-brand-accent/70" />
-              <div className="flex flex-1 flex-col p-6">
-                <div className="flex items-center gap-2">
-                  <Badge variant="accent">{post.category}</Badge>
-                  <span className="text-xs text-brand-muted">{post.readingTime}</span>
-                </div>
-                <h2 className="mt-3 font-display text-xl font-bold text-brand-ink dark:text-white">
-                  <Link href={`/blog/${post.slug}`} className="hover:text-brand-accent">
-                    {post.title}
-                  </Link>
-                </h2>
-                <p className="mt-2 flex-1 text-sm text-brand-muted leading-relaxed">
-                  {post.description}
-                </p>
-                <div className="mt-4 flex items-center justify-between text-xs text-brand-muted">
-                  <Link
-                    href={`/blog/author/${post.author}`}
-                    className="hover:text-brand-accent"
+            <div className="flex flex-wrap gap-2">
+              {[post.category, ...post.tags]
+                .filter(Boolean)
+                .filter((tag, i, arr) => arr.indexOf(tag) === i)
+                .slice(0, 2)
+                .map((tag) => (
+                  <span
+                    key={tag}
+                    className="rounded-full bg-[#F05A78]/12 px-2.5 py-1 text-[11px] font-semibold text-[#C43D5C]"
                   >
-                    {author?.name || post.author}
-                  </Link>
-                  <time dateTime={post.date}>{formatDate(post.date)}</time>
-                </div>
-              </div>
-            </article>
-          );
-        })}
+                    {tag}
+                  </span>
+                ))}
+            </div>
+
+            <h2 className="mt-4 font-display text-xl font-bold leading-snug tracking-tight text-brand-ink dark:text-white">
+              <Link href={`/blog/${post.slug}`} className="hover:text-brand-accent">
+                {post.title}
+              </Link>
+            </h2>
+
+            <p className="mt-3 flex-1 text-sm leading-relaxed text-brand-muted">
+              {post.description}
+            </p>
+
+            <Link
+              href={`/blog/${post.slug}`}
+              className="mt-5 inline-flex items-center gap-1 text-xs font-semibold text-brand-muted transition-colors hover:text-brand-accent"
+            >
+              <time dateTime={post.date}>{formatMonthYear(post.date)}</time>
+              <ArrowUpRight className="h-3.5 w-3.5" />
+            </Link>
+          </article>
+        ))}
       </div>
 
-      {filtered.length === 0 && (
-        <p className="mt-12 text-center text-brand-muted">No posts match your search.</p>
+      {posts.length === 0 && (
+        <p className="mt-12 text-center text-brand-muted">No posts yet.</p>
       )}
     </div>
   );

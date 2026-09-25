@@ -1,0 +1,34 @@
+# rankedbyapril
+
+> Premium SEO, AI search (AEO/GEO), and Shopify growth for ecommerce, health, beauty, and SaaS brands.
+
+## Site
+
+- Home: https://rankedbyapril.com/
+- Services: https://rankedbyapril.com/services
+- Case studies: https://rankedbyapril.com/portfolio
+- Blog: https://rankedbyapril.com/blog
+- About: https://rankedbyapril.com/about
+- Contact: https://rankedbyapril.com/contact
+
+## Services
+
+- SEO Services: https://rankedbyapril.com/services/seo
+- AI SEO / GEO / AEO: https://rankedbyapril.com/services/ai-seo
+- Website Development: https://rankedbyapril.com/services/web-development
+- Local SEO: https://rankedbyapril.com/services/local-seo
+- Technical SEO: https://rankedbyapril.com/services/technical-seo
+- Content Marketing: https://rankedbyapril.com/services/content-marketing
+- Lead Generation: https://rankedbyapril.com/services/lead-generation
+- White Label SEO: https://rankedbyapril.com/services/white-label-seo
+
+## Contact
+
+- Email: hello@rankedbyapril.com
+- Book a call: https://calendly.com/rankedbyapril/strategy-call
+- WhatsApp: https://wa.me/14159412024
+
+## Optional
+
+- Sitemap: https://rankedbyapril.com/sitemap.xml
+- Robots: https://rankedbyapril.com/robots.txt

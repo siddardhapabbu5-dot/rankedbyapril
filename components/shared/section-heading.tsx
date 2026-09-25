@@ -14,6 +14,8 @@ type SectionHeadingProps = {
   description?: string;
   align?: "left" | "center";
   className?: string;
+  /** Use h1 for page heroes; h2 (default) for in-page sections */
+  as?: "h1" | "h2";
 };
 
 export function SectionHeading({
@@ -22,7 +24,9 @@ export function SectionHeading({
   description,
   align = "left",
   className,
+  as = "h2",
 }: SectionHeadingProps) {
+  const HeadingTag = as;
   return (
     <motion.div
       variants={fadeUp}
@@ -41,9 +45,9 @@ export function SectionHeading({
           {eyebrow}
         </p>
       )}
-      <h2 className="font-display text-3xl font-bold tracking-tight text-brand-ink text-balance md:text-4xl dark:text-white">
+      <HeadingTag className="font-display text-3xl font-bold tracking-tight text-brand-ink text-balance md:text-4xl dark:text-white">
         {title}
-      </h2>
+      </HeadingTag>
       {description && (
         <p className="mt-4 text-base leading-relaxed text-brand-muted md:text-lg">
           {description}
@@ -63,16 +67,12 @@ export function FadeIn({
   delay?: number;
 }) {
   return (
-    <motion.div
-      variants={fadeUp}
-      initial="hidden"
-      whileInView="visible"
-      viewport={{ once: true, margin: "-60px" }}
-      transition={{ duration: 0.5, delay, ease: [0.22, 1, 0.36, 1] }}
-      className={className}
+    <div
+      className={cn("animate-fade-up", className)}
+      style={{ animationDelay: `${delay}s` }}
     >
       {children}
-    </motion.div>
+    </div>
   );
 }
 

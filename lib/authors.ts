@@ -1,4 +1,5 @@
 import type { Author } from "@/types";
+import { siteConfig } from "@/lib/site-config";
 
 export const authors: Record<string, Author> = {
   april: {
@@ -8,8 +9,8 @@ export const authors: Record<string, Author> = {
     bio: "April leads organic growth strategy at rankedbyapril, specializing in SEO systems and AI search visibility for growth-stage brands.",
     image: "/images/team-april.jpg",
     social: {
-      linkedin: "https://linkedin.com",
-      twitter: "https://twitter.com",
+      linkedin: siteConfig.social.linkedin,
+      twitter: siteConfig.social.twitter,
     },
   },
   mia: {
@@ -18,7 +19,7 @@ export const authors: Record<string, Author> = {
     role: "Content & GEO Lead",
     bio: "Mia builds answer-first content engines designed to rank in classic search and earn citations from AI platforms.",
     image: "/images/team-mia.jpg",
-    social: { linkedin: "https://linkedin.com" },
+    social: { linkedin: siteConfig.social.linkedin },
   },
 };
 
