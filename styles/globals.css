@@ -1,0 +1,149 @@
+@import "tailwindcss";
+@plugin "@tailwindcss/typography";
+
+:root {
+  --background: #ffffff;
+  --foreground: #18233a;
+  --brand-ink: #18233a;
+  --brand-navy: #18233a;
+  --brand-accent: #f05a78;
+  --brand-accent-dark: #d94462;
+  --brand-muted: #667085;
+  --brand-surface: #faf8f5;
+  --brand-ring: #f05a78;
+  --brand-white: #ffffff;
+}
+
+.dark {
+  --background: #121826;
+  --foreground: #faf8f5;
+  --brand-ink: #faf8f5;
+  --brand-navy: #a8b8d4;
+  --brand-accent: #f05a78;
+  --brand-accent-dark: #ff7a92;
+  --brand-muted: #98a2b3;
+  --brand-surface: #1a2438;
+  --brand-ring: #f05a78;
+  --brand-white: #ffffff;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-brand-ink: var(--brand-ink);
+  --color-brand-navy: var(--brand-navy);
+  --color-brand-accent: var(--brand-accent);
+  --color-brand-accent-dark: var(--brand-accent-dark);
+  --color-brand-muted: var(--brand-muted);
+  --color-brand-surface: var(--brand-surface);
+  --color-brand-ring: var(--brand-ring);
+  --color-brand-white: var(--brand-white);
+  --font-sans: var(--font-body);
+  --font-display: var(--font-display-family);
+  --animate-accordion-down: accordion-down 0.2s ease-out;
+  --animate-accordion-up: accordion-up 0.2s ease-out;
+}
+
+@keyframes accordion-down {
+  from {
+    height: 0;
+  }
+  to {
+    height: var(--radix-accordion-content-height);
+  }
+}
+
+@keyframes accordion-up {
+  from {
+    height: var(--radix-accordion-content-height);
+  }
+  to {
+    height: 0;
+  }
+}
+
+@keyframes float {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-8px);
+  }
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-body), ui-sans-serif, system-ui, sans-serif;
+}
+
+::selection {
+  background: color-mix(in oklab, var(--brand-accent) 28%, white);
+  color: var(--brand-ink);
+}
+
+.dark ::selection {
+  background: color-mix(in oklab, var(--brand-accent) 40%, black);
+  color: white;
+}
+
+.container-page {
+  width: 100%;
+  max-width: 72rem;
+  margin-inline: auto;
+  padding-inline: 1.25rem;
+}
+
+@media (min-width: 768px) {
+  .container-page {
+    padding-inline: 2rem;
+  }
+}
+
+.section-pad {
+  padding-block: 4.5rem;
+}
+
+@media (min-width: 768px) {
+  .section-pad {
+    padding-block: 6.5rem;
+  }
+}
+
+.gradient-mesh {
+  background:
+    radial-gradient(ellipse 80% 50% at 20% -10%, color-mix(in oklab, var(--brand-accent) 16%, transparent), transparent 55%),
+    radial-gradient(ellipse 60% 40% at 90% 10%, color-mix(in oklab, #18233a 10%, transparent), transparent 50%),
+    radial-gradient(ellipse 50% 30% at 50% 100%, color-mix(in oklab, #faf8f5 80%, transparent), transparent 45%),
+    var(--background);
+}
+
+.dark .gradient-mesh {
+  background:
+    radial-gradient(ellipse 80% 50% at 20% -10%, color-mix(in oklab, var(--brand-accent) 20%, transparent), transparent 55%),
+    radial-gradient(ellipse 60% 40% at 90% 10%, color-mix(in oklab, #a8b8d4 12%, transparent), transparent 50%),
+    var(--background);
+}
+
+.text-balance {
+  text-wrap: balance;
+}
+
+.focus-ring:focus-visible {
+  outline: 2px solid var(--brand-ring);
+  outline-offset: 2px;
+}

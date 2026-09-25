@@ -1,36 +1,50 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# rankedbyapril
 
-## Getting Started
+Premium corporate digital agency website for **rankedbyapril** — SEO, AI SEO / GEO, websites, and organic growth.
 
-First, run the development server:
+## Stack
+
+- Next.js 16 (App Router) · React 19 · TypeScript
+- Tailwind CSS v4 · Framer Motion · Radix / shadcn-style UI
+- MDX blog (`content/blog`) · next-mdx-remote
+- Dark / light mode · Schema.org · Sitemap · Robots
+
+## Getting started
 
 ```bash
+npm install
+cp .env.example .env.local
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:3000](http://localhost:3000).
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Scripts
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+| Command | Description |
+| --- | --- |
+| `npm run dev` | Development server |
+| `npm run build` | Production build |
+| `npm run start` | Start production server |
+| `npm run lint` | ESLint |
 
-## Learn More
+## Project structure
 
-To learn more about Next.js, take a look at the following resources:
+```
+app/           # Routes, layouts, API, sitemap, robots
+components/    # UI, layout, home, blog, forms, seo
+content/blog/  # MDX posts
+hooks/         # Client hooks
+lib/           # Config, SEO, schema, blog, data, Sanity stub
+public/        # Static assets
+styles/        # Global CSS (Tailwind v4 theme)
+types/         # Shared TypeScript types
+```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Brand
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+Brand palette: Deep Navy (`#18233A`), Coral Pink (`#F05A78`), Warm Off-White (`#FAF8F5`), White (`#FFFFFF`), Soft Gray (`#667085`).
 
-## Deploy on Vercel
+## Integrations (env)
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+See `.env.example` for Analytics, Search Console, CRM webhooks, Calendly, and Sanity CMS.
