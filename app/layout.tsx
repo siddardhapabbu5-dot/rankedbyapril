@@ -2,7 +2,6 @@ import type { Metadata } from "next";
 import { Inter, Manrope } from "next/font/google";
 import { Header } from "@/components/layout/header";
 import { Footer } from "@/components/layout/footer";
-import { ThemeProvider } from "@/components/providers/theme-provider";
 import { LanguageProvider } from "@/components/providers/language-provider";
 import { DeferredChrome } from "@/components/shared/deferred-chrome";
 import { JsonLd } from "@/components/seo/json-ld";
@@ -45,6 +44,8 @@ export const metadata: Metadata = {
   },
 };
 
+const themeInitScript = `(function(){try{var t=localStorage.getItem('rankedbyapril-theme');var d=t==='dark'||(t!=='light'&&window.matchMedia('(prefers-color-scheme: dark)').matches);if(d)document.documentElement.classList.add('dark');}catch(e){}})();`;
+
 export default function RootLayout({ children }: LayoutProps<"/">) {
   const gaId = siteConfig.analytics.gaId;
   const gtmId = siteConfig.analytics.gtmId;
@@ -52,6 +53,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
     <html lang="en" suppressHydrationWarning className={`${inter.variable} ${manrope.variable}`}>
       <head>
+        <script dangerouslySetInnerHTML={{ __html: themeInitScript }} />
         {gtmId ? (
           <script
             dangerouslySetInnerHTML={{
@@ -72,36 +74,34 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
             />
           </noscript>
         ) : null}
-        <ThemeProvider attribute="class" defaultTheme="light" enableSystem disableTransitionOnChange>
-          <LanguageProvider>
-            <a
-              href="#main-content"
-              className="sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-4 focus:z-[100] focus:rounded-md focus:bg-brand-accent focus:px-4 focus:py-2 focus:text-white"
-            >
-              Skip to content
-            </a>
-            <Header />
-            <main id="main-content" className="flex-1">
-              {children}
-            </main>
-            <Footer />
-            <DeferredChrome />
-            <JsonLd data={[organizationSchema(), localBusinessSchema(), personSchema()]} />
-            {gaId ? (
-              <>
-                <script
-                  async
-                  src={`https://www.googletagmanager.com/gtag/js?id=${gaId}`}
-                />
-                <script
-                  dangerouslySetInnerHTML={{
-                    __html: `window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','${gaId}');`,
-                  }}
-                />
-              </>
-            ) : null}
-          </LanguageProvider>
-        </ThemeProvider>
+        <LanguageProvider>
+          <a
+            href="#main-content"
+            className="sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-4 focus:z-[100] focus:rounded-md focus:bg-brand-accent focus:px-4 focus:py-2 focus:text-white"
+          >
+            Skip to content
+          </a>
+          <Header />
+          <main id="main-content" className="flex-1">
+            {children}
+          </main>
+          <Footer />
+          <DeferredChrome />
+          <JsonLd data={[organizationSchema(), localBusinessSchema(), personSchema()]} />
+          {gaId ? (
+            <>
+              <script
+                async
+                src={`https://www.googletagmanager.com/gtag/js?id=${gaId}`}
+              />
+              <script
+                dangerouslySetInnerHTML={{
+                  __html: `window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','${gaId}');`,
+                }}
+              />
+            </>
+          ) : null}
+        </LanguageProvider>
       </body>
     </html>
   );
