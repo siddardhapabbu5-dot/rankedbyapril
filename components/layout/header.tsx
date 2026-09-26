@@ -5,11 +5,25 @@ import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
 import { ChevronDown, Menu, X } from "lucide-react";
 import { Logo } from "@/components/layout/logo";
-import { LanguageSwitcher } from "@/components/layout/language-switcher";
-import { ThemeToggle } from "@/components/layout/theme-toggle";
-import { InstallAppButton } from "@/components/shared/install-app-button";
+import { HeaderExtras } from "@/components/layout/header-extras";
 import { useLanguage } from "@/components/providers/language-provider";
 import { cn } from "@/lib/utils";
+import dynamic from "next/dynamic";
+
+const LanguageSwitcher = dynamic(
+  () =>
+    import("@/components/layout/language-switcher").then((m) => m.LanguageSwitcher),
+  { ssr: false }
+);
+const ThemeToggle = dynamic(
+  () => import("@/components/layout/theme-toggle").then((m) => m.ThemeToggle),
+  { ssr: false }
+);
+const InstallAppButton = dynamic(
+  () =>
+    import("@/components/shared/install-app-button").then((m) => m.InstallAppButton),
+  { ssr: false }
+);
 
 function scrollToHash(hash: string) {
   const id = hash.replace(/^#/, "");
@@ -171,11 +185,7 @@ export function Header() {
           >
             {t.nav.brochure}
           </Link>
-          <InstallAppButton variant="header" />
-          <LanguageSwitcher />
-          <div className="hidden sm:block">
-            <ThemeToggle />
-          </div>
+          <HeaderExtras />
           <Link
             href="/contact"
             className="hidden rounded-full bg-gradient-to-r from-[#E84A6A] to-[#F05A78] px-4 py-2.5 text-sm font-semibold text-white shadow-sm transition-transform hover:scale-[1.02] xl:inline-flex"

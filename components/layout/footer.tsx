@@ -1,13 +1,12 @@
-"use client";
-
 import Link from "next/link";
 import { Logo } from "@/components/layout/logo";
 import { NewsletterForm } from "@/components/forms/newsletter-form";
-import { useLanguage } from "@/components/providers/language-provider";
+import { en } from "@/lib/i18n/dictionaries/en";
 import { siteConfig } from "@/lib/site-config";
 
+/** Server-rendered footer (English). Keeps newsletter as the only client island. */
 export function Footer() {
-  const { t } = useLanguage();
+  const t = en;
   const year = new Date().getFullYear();
   const socialLinks = [
     { label: "LinkedIn", href: siteConfig.social.linkedin },

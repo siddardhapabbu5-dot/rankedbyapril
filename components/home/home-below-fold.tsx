@@ -70,7 +70,7 @@ const ContactCta = dynamic(
 /** Below-fold homepage blocks — code-split and mount on scroll (no tall empty placeholders). */
 export function HomeBelowFold() {
   return (
-    <>
+    <div className="min-h-[70vh]">
       <DeferredMount>
         <ResultsSection />
       </DeferredMount>
@@ -116,6 +116,6 @@ export function HomeBelowFold() {
       <DeferredMount>
         <ContactCta />
       </DeferredMount>
-    </>
+    </div>
   );
 }

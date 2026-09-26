@@ -88,7 +88,7 @@ export function Hero() {
                   alt={alt}
                   width={720}
                   height={900}
-                  decoding="async"
+                  decoding="sync"
                   fetchPriority="high"
                   className="aspect-[4/5] h-auto w-full object-cover object-top"
                 />
