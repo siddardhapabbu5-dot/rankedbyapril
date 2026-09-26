@@ -38,7 +38,10 @@ export function Footer() {
   ];
 
   return (
-    <footer className="border-t border-brand-ink/10 bg-brand-surface pb-20 dark:border-white/10 dark:bg-brand-surface sm:pb-0">
+    <footer
+      className="border-t border-brand-ink/10 bg-brand-surface pb-20 dark:border-white/10 dark:bg-brand-surface sm:pb-0"
+      style={{ contentVisibility: "auto", containIntrinsicSize: "480px" }}
+    >
       <div className="container-page section-pad !pb-8 !pt-12">
         <div className="grid gap-10 md:grid-cols-2 lg:grid-cols-12">
           <div className="lg:col-span-4">

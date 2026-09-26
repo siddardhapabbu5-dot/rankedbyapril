@@ -127,7 +127,11 @@ export function ResultsSection() {
   const bottomRow = rest.slice(3);
 
   return (
-    <section id="results" className="section-pad scroll-mt-24 bg-white dark:bg-background">
+    <section
+      id="results"
+      className="section-pad scroll-mt-24 bg-white dark:bg-background"
+      style={{ contentVisibility: "auto", containIntrinsicSize: "900px" }}
+    >
       <div className="container-page">
         <div className="max-w-2xl">
           <p className="text-xs font-semibold uppercase tracking-[0.2em] text-brand-accent">
