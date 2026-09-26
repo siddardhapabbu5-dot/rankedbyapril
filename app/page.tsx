@@ -1,6 +1,5 @@
 import { Hero } from "@/components/home/hero";
 import { ClientLogos } from "@/components/home/client-logos";
-import { ResultsSection } from "@/components/home/results-section";
 import { HomeBelowFold } from "@/components/home/home-below-fold";
 import { JsonLd } from "@/components/seo/json-ld";
 import { faqSchema } from "@/lib/schema";
@@ -14,8 +13,8 @@ export const metadata = buildMetadata({
 });
 
 /**
- * Eager above-the-fold: Hero → Logos → Results (fast LCP / less JS).
- * Below-fold mounts on scroll to cut TBT, TTI, and initial DOM.
+ * Eager above-the-fold: Hero + Logos only (fast LCP / SI).
+ * Results + remaining sections mount after load+idle.
  */
 export default function HomePage() {
   return (
@@ -23,7 +22,6 @@ export default function HomePage() {
       <JsonLd data={faqSchema(homeFaqs)} />
       <Hero />
       <ClientLogos />
-      <ResultsSection />
       <HomeBelowFold />
     </>
   );

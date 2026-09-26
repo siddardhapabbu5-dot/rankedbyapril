@@ -18,13 +18,15 @@ import "@/styles/globals.css";
 const inter = Inter({
   subsets: ["latin"],
   variable: "--font-body",
-  display: "swap",
+  display: "optional",
+  adjustFontFallback: true,
 });
 
 const manrope = Manrope({
   subsets: ["latin"],
   variable: "--font-display-family",
-  display: "swap",
+  display: "optional",
+  adjustFontFallback: true,
 });
 
 export const metadata: Metadata = {

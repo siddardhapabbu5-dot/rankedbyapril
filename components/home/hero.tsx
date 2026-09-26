@@ -22,7 +22,7 @@ export function Hero() {
       />
 
       <div className="container-page relative grid items-start gap-10 pb-14 pt-10 md:gap-12 md:pb-16 md:pt-12 lg:grid-cols-12">
-        <div className="lg:col-span-7 lg:pt-2">
+        <div className="order-2 lg:order-1 lg:col-span-7 lg:pt-2">
           <HeroCopy
             fallback={
               <>
@@ -73,7 +73,7 @@ export function Hero() {
           />
         </div>
 
-        <div className="relative lg:col-span-5">
+        <div className="relative order-1 lg:order-2 lg:col-span-5">
           <div className="mb-5 text-center">
             <p className="text-[11px] font-semibold uppercase tracking-[0.24em] text-brand-accent-dark dark:text-brand-accent">
               {t.roleLabel}
@@ -92,6 +92,7 @@ export function Hero() {
                   fill
                   priority
                   fetchPriority="high"
+                  quality={70}
                   className="object-cover object-top"
                   sizes="(max-width: 768px) 90vw, 420px"
                 />

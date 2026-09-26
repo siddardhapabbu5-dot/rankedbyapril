@@ -3,6 +3,10 @@
 import dynamic from "next/dynamic";
 import { DeferredMount } from "@/components/shared/deferred-mount";
 
+const ResultsSection = dynamic(
+  () => import("@/components/home/results-section").then((m) => m.ResultsSection),
+  { ssr: false }
+);
 const OrganicGrowthSection = dynamic(
   () =>
     import("@/components/home/organic-growth-section").then((m) => m.OrganicGrowthSection),
@@ -67,6 +71,9 @@ const ContactCta = dynamic(
 export function HomeBelowFold() {
   return (
     <>
+      <DeferredMount minHeight={720}>
+        <ResultsSection />
+      </DeferredMount>
       <DeferredMount minHeight={520}>
         <OrganicGrowthSection />
       </DeferredMount>
