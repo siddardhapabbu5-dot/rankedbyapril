@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { Inter, Manrope } from "next/font/google";
 import { Header } from "@/components/layout/header";
 import { Footer } from "@/components/layout/footer";
-import { DeferredTheme } from "@/components/providers/deferred-theme";
+import { ThemeProvider } from "@/components/providers/theme-provider";
 import { LanguageProvider } from "@/components/providers/language-provider";
 import { DeferredChrome } from "@/components/shared/deferred-chrome";
 import { JsonLd } from "@/components/seo/json-ld";
@@ -19,7 +19,6 @@ const inter = Inter({
   subsets: ["latin"],
   variable: "--font-body",
   display: "optional",
-  preload: false,
   adjustFontFallback: true,
 });
 
@@ -27,7 +26,6 @@ const manrope = Manrope({
   subsets: ["latin"],
   variable: "--font-display-family",
   display: "optional",
-  preload: false,
   adjustFontFallback: true,
 });
 
@@ -74,7 +72,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
             />
           </noscript>
         ) : null}
-        <DeferredTheme>
+        <ThemeProvider attribute="class" defaultTheme="light" enableSystem disableTransitionOnChange>
           <LanguageProvider>
             <a
               href="#main-content"
@@ -103,7 +101,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
               </>
             ) : null}
           </LanguageProvider>
-        </DeferredTheme>
+        </ThemeProvider>
       </body>
     </html>
   );

@@ -3,10 +3,6 @@
 import dynamic from "next/dynamic";
 import { DeferredMount } from "@/components/shared/deferred-mount";
 
-const ResultsSection = dynamic(
-  () => import("@/components/home/results-section").then((m) => m.ResultsSection),
-  { ssr: false }
-);
 const OrganicGrowthSection = dynamic(
   () =>
     import("@/components/home/organic-growth-section").then((m) => m.OrganicGrowthSection),
@@ -70,10 +66,7 @@ const ContactCta = dynamic(
 /** Below-fold homepage blocks — code-split and mount on scroll (no tall empty placeholders). */
 export function HomeBelowFold() {
   return (
-    <div className="min-h-[70vh]">
-      <DeferredMount>
-        <ResultsSection />
-      </DeferredMount>
+    <div>
       <DeferredMount>
         <OrganicGrowthSection />
       </DeferredMount>

@@ -1,5 +1,6 @@
 import { Hero } from "@/components/home/hero";
 import { ClientLogos } from "@/components/home/client-logos";
+import { ResultsSection } from "@/components/home/results-section";
 import { DeferredHomeBelow } from "@/components/home/deferred-home-below";
 import { JsonLd } from "@/components/seo/json-ld";
 import { faqSchema } from "@/lib/schema";
@@ -13,8 +14,8 @@ export const metadata = buildMetadata({
 });
 
 /**
- * Eager: Hero + Logos (SSR for Speed Index / LCP).
- * Everything else loads after load+idle.
+ * Eager SSR: Hero + Logos + Results (Speed Index / LCP).
+ * Deeper sections load after idle (TBT / DOM).
  */
 export default function HomePage() {
   return (
@@ -22,6 +23,7 @@ export default function HomePage() {
       <JsonLd data={faqSchema(homeFaqs)} />
       <Hero />
       <ClientLogos />
+      <ResultsSection />
       <DeferredHomeBelow />
     </>
   );

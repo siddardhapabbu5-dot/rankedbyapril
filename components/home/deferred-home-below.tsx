@@ -31,6 +31,6 @@ export function DeferredHomeBelow() {
     };
   }, []);
 
-  if (!Comp) return <div className="min-h-[70vh]" aria-hidden />;
+  if (!Comp) return null;
   return <Comp />;
 }
