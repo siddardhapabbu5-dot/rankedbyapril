@@ -12,9 +12,9 @@ export function Testimonials() {
           eyebrow="Testimonials"
           title="What clients say after the rankings settle"
           align="center"
-          className="mb-12"
+          className="mb-8"
         />
-        <Stagger className="grid gap-6 md:grid-cols-2">
+        <Stagger className="grid gap-5 md:grid-cols-2">
           {testimonials.map((t) => (
             <StaggerItem key={t.author}>
               <blockquote className="flex h-full flex-col rounded-2xl border border-brand-ink/8 bg-white p-7 dark:border-white/10 dark:bg-background">

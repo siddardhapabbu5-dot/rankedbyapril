@@ -41,15 +41,22 @@ export function SectionHeading({
       )}
     >
       {eyebrow && (
-        <p className="mb-3 text-xs font-semibold uppercase tracking-[0.2em] text-brand-accent">
+        <p className="mb-2 text-xs font-semibold uppercase tracking-[0.08em] text-brand-accent">
           {eyebrow}
         </p>
       )}
-      <HeadingTag className="font-display text-3xl font-bold tracking-tight text-brand-ink text-balance md:text-4xl dark:text-white">
+      <HeadingTag
+        className={cn(
+          "font-display tracking-tight text-brand-ink text-balance dark:text-white",
+          as === "h1"
+            ? "text-4xl font-extrabold leading-[1.1] md:text-5xl lg:text-6xl"
+            : "mt-0 text-3xl font-bold leading-[1.15] md:text-4xl lg:text-5xl"
+        )}
+      >
         {title}
       </HeadingTag>
       {description && (
-        <p className="mt-4 text-base leading-relaxed text-brand-muted md:text-lg">
+        <p className="mt-3 text-base font-normal leading-relaxed text-brand-body md:text-lg">
           {description}
         </p>
       )}

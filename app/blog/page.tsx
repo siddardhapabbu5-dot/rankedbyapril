@@ -27,8 +27,8 @@ export default async function BlogPage() {
       />
 
       <section className="bg-[#FAF8F5] dark:bg-background">
-        <div className="container-page pb-10 pt-10 md:pb-12 md:pt-14">
-          <p className="mb-6 text-sm text-brand-muted">
+        <div className="container-page pb-10 pt-10 md:pb-12 md:pt-12">
+          <p className="mb-4 text-sm text-brand-muted">
             <Link href="/" className="hover:text-brand-accent">
               Home
             </Link>
@@ -39,12 +39,12 @@ export default async function BlogPage() {
             <p className="text-[11px] font-semibold uppercase tracking-[0.22em] text-brand-muted">
               The Ranked Notes
             </p>
-            <h1 className="mt-3 font-display text-4xl font-bold tracking-tight text-brand-ink text-balance md:text-5xl dark:text-white">
+            <h1 className="mt-2 font-display text-4xl font-bold tracking-tight text-brand-ink text-balance md:text-5xl dark:text-white">
               SEO, AI search &amp; Shopify growth —{" "}
               <span className="italic text-[#5E2A5E] dark:text-[#D5C8D8]">practiced</span>, then
               written.
             </h1>
-            <p className="mt-5 max-w-2xl text-base leading-relaxed text-brand-muted md:text-lg">
+            <p className="mt-3 max-w-2xl text-base leading-relaxed text-brand-muted md:text-lg">
               No recycled tips. Everything here comes from work I&apos;ve actually shipped —
               including the tactics behind my clients&apos; AI Overview citations.
             </p>
@@ -58,7 +58,7 @@ export default async function BlogPage() {
         </div>
       </section>
 
-      <section className="bg-[#FAF8F5] pb-16 pt-6 dark:bg-background">
+      <section className="section-pad bg-[#FAF8F5] !pt-0 dark:bg-background">
         <div className="container-page border-t border-brand-ink/10 pt-8 text-center dark:border-white/10">
           <p className="text-sm text-brand-muted">
             New posts roughly twice a month. Want one written for your blog instead?{" "}

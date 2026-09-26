@@ -7,7 +7,7 @@ export function organizationSchema() {
     "@type": "Organization",
     name: siteConfig.legalName,
     url: siteConfig.url,
-    logo: `${siteConfig.url}/logo.svg`,
+    logo: `${siteConfig.url}/brand-logo.png`,
     description: siteConfig.description,
     email: siteConfig.email,
     telephone: siteConfig.phone,
@@ -43,8 +43,8 @@ export function localBusinessSchema() {
     },
     geo: {
       "@type": "GeoCoordinates",
-      latitude: 37.7785,
-      longitude: -122.4177,
+      latitude: 7.7333,
+      longitude: 123.3167,
     },
     openingHoursSpecification: {
       "@type": "OpeningHoursSpecification",
@@ -119,7 +119,7 @@ export function articleSchema({
       name: siteConfig.legalName,
       logo: {
         "@type": "ImageObject",
-        url: `${siteConfig.url}/logo.svg`,
+        url: `${siteConfig.url}/brand-logo.png`,
       },
     },
     mainEntityOfPage: { "@type": "WebPage", "@id": url },
@@ -130,7 +130,7 @@ export function personSchema() {
   return {
     "@context": "https://schema.org",
     "@type": "Person",
-    name: "April Reyes",
+    name: "April Grace Degracia",
     jobTitle: "Founder & Organic Growth Specialist",
     url: `${siteConfig.url}/about`,
     image: `${siteConfig.url}/images/april-portrait.jpg`,

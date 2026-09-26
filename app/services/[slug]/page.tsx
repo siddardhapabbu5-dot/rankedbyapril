@@ -53,7 +53,7 @@ export default async function ServiceDetailPage({ params }: Props) {
       />
 
       <section className="gradient-mesh border-b border-brand-ink/8 dark:border-white/10">
-        <div className="container-page pb-16 pt-10 md:pb-20 md:pt-14">
+        <div className="container-page pb-12 pt-10 md:pb-14 md:pt-12">
           <Breadcrumbs
             items={[
               { label: "Services", href: "/services" },
@@ -114,7 +114,7 @@ export default async function ServiceDetailPage({ params }: Props) {
       <section className="section-pad bg-brand-surface dark:bg-brand-surface/50">
         <div className="container-page">
           <SectionHeading title="How we deliver" />
-          <Stagger className="mt-10 grid gap-5 md:grid-cols-2 lg:grid-cols-4">
+          <Stagger className="section-gap grid gap-5 md:grid-cols-2 lg:grid-cols-4">
             {service.process.map((step) => (
               <StaggerItem key={step.step}>
                 <div className="h-full rounded-2xl border border-brand-ink/8 bg-white p-6 dark:border-white/10 dark:bg-background">

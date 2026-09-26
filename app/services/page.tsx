@@ -47,7 +47,7 @@ export default function ServicesPage() {
         ])}
       />
       <section className="gradient-mesh border-b border-brand-ink/8 dark:border-white/10">
-        <div className="container-page pb-16 pt-10 md:pb-20 md:pt-14">
+        <div className="container-page pb-12 pt-10 md:pb-14 md:pt-12">
           <Breadcrumbs items={[{ label: "Services" }]} />
           <FadeIn>
             <SectionHeading

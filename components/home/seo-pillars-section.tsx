@@ -30,7 +30,7 @@ const pillars = [
 
 export function SeoPillarsSection() {
   return (
-    <section className="bg-[#FAF8F5] pb-16 md:pb-20 dark:bg-background">
+    <section className="section-pad bg-[#FAF8F5] dark:bg-background">
       <div className="container-page">
         <FadeIn>
           <div className="overflow-hidden rounded-2xl border border-brand-ink/10 bg-white shadow-[0_4px_24px_-8px_rgba(24,35,58,0.08)] dark:border-white/10 dark:bg-brand-surface">

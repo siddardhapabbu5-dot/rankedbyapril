@@ -28,14 +28,14 @@ const icons = {
 
 export function ServicesOverview() {
   return (
-    <section className="section-pad">
+    <section id="services" className="section-pad scroll-mt-24">
       <div className="container-page">
         <SectionHeading
           eyebrow="Services"
           title="What we take off your plate"
           description="From audits and technical fixes to AI-ready content and conversion-focused sites — strategy through shipping."
         />
-        <Stagger className="mt-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+        <Stagger className="section-gap grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
           {services.map((service) => {
             const Icon = icons[service.icon as keyof typeof icons] || Search;
             return (

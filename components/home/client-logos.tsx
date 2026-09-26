@@ -41,19 +41,19 @@ function BrandPill({ brand }: { brand: Brand }) {
 
 export function ClientLogos() {
   return (
-    <section className="border-y border-brand-ink/8 bg-[#FAF8F5] py-14 dark:border-white/10 dark:bg-brand-surface/40">
+    <section className="border-y border-brand-ink/8 bg-[#FAF8F5] section-pad dark:border-white/10 dark:bg-brand-surface/40">
       <div className="container-page">
         <FadeIn>
           <p className="text-center text-[11px] font-semibold uppercase tracking-[0.2em] text-brand-muted">
             Some of the brands I&apos;ve ranked &amp; written for
           </p>
 
-          <div className="mt-10 grid gap-10 lg:grid-cols-2 lg:gap-16">
+          <div className="section-gap grid gap-8 lg:grid-cols-2 lg:gap-12">
             <div>
               <p className="text-[11px] font-semibold uppercase tracking-[0.18em] text-brand-ink dark:text-white">
                 Ecommerce · SEO &amp; content
               </p>
-              <ul className="mt-4 flex flex-wrap gap-2.5">
+              <ul className="mt-3 flex flex-wrap gap-2.5">
                 {ecommerce.map((brand) => (
                   <BrandPill key={brand.name} brand={brand} />
                 ))}
@@ -64,7 +64,7 @@ export function ClientLogos() {
               <p className="text-[11px] font-semibold uppercase tracking-[0.18em] text-brand-ink dark:text-white">
                 SaaS · long-form SEO content
               </p>
-              <ul className="mt-4 flex flex-wrap gap-2.5">
+              <ul className="mt-3 flex flex-wrap gap-2.5">
                 {saas.map((brand) => (
                   <BrandPill key={brand.name} brand={brand} />
                 ))}
@@ -72,7 +72,7 @@ export function ClientLogos() {
             </div>
           </div>
 
-          <p className="mt-10 text-center text-sm italic leading-relaxed text-brand-muted">
+          <p className="mt-8 text-center text-sm italic leading-relaxed text-brand-muted">
             A sample, not the full list. I&apos;ve worked with 20+ more brands across ecommerce,
             health, legal, and lifestyle. The numbers below tell that story.
           </p>

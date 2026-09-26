@@ -52,24 +52,24 @@ const services = [
 
 export function AiRecommendSection() {
   return (
-    <section className="bg-[#F3EEF2] py-16 md:py-20 dark:bg-[#2A2430]">
+    <section className="section-pad bg-[#F3EEF2] dark:bg-[#2A2430]">
       <div className="container-page">
         <FadeIn className="mx-auto max-w-3xl text-center">
           <p className="text-[11px] font-semibold uppercase tracking-[0.22em] text-[#5E2A5E] dark:text-[#D5C8D8]">
             AEO · GEO · AI Search
           </p>
-          <h2 className="mt-4 font-display text-3xl font-bold tracking-tight text-brand-ink text-balance md:text-4xl dark:text-white">
+          <h2 className="mt-3 font-display text-3xl font-bold tracking-tight text-brand-ink text-balance md:text-4xl dark:text-white">
             Want AI to <span className="italic text-[#5E2A5E] dark:text-[#D5C8D8]">recommend</span>{" "}
             your brand?
           </h2>
-          <p className="mx-auto mt-5 max-w-2xl text-base leading-relaxed text-brand-muted md:text-lg">
+          <p className="mx-auto mt-3 max-w-2xl text-base leading-relaxed text-brand-muted md:text-lg">
             Buyers now ask ChatGPT and Google&apos;s AI answers before they ever open a results
             page. I structure your content so those answers can quote you, cite you, and name you.
             My clients already show up there; the receipts are right above.
           </p>
         </FadeIn>
 
-        <Stagger className="mt-12 grid gap-5 md:grid-cols-3">
+        <Stagger className="section-gap grid gap-5 md:grid-cols-3">
           {services.map((service) => {
             const Icon = service.icon;
             return (
@@ -88,14 +88,14 @@ export function AiRecommendSection() {
                   >
                     <Icon className={cn("h-5 w-5", service.iconColor)} />
                   </span>
-                  <h3 className="mt-5 font-display text-xl font-bold text-brand-ink dark:text-white">
+                  <h3 className="mt-4 font-display text-xl font-bold text-brand-ink dark:text-white">
                     {service.title}
                   </h3>
-                  <ul className="mt-5 flex-1 space-y-0">
+                  <ul className="mt-4 flex-1 space-y-0">
                     {service.items.map((item) => (
                       <li
                         key={item}
-                        className="border-t border-brand-ink/8 py-3 text-sm leading-relaxed text-brand-muted first:border-t-0 first:pt-0 dark:border-white/10"
+                        className="border-t border-brand-ink/8 py-2.5 text-sm leading-relaxed text-brand-muted first:border-t-0 first:pt-0 dark:border-white/10"
                       >
                         {item}
                       </li>
@@ -104,7 +104,7 @@ export function AiRecommendSection() {
                   {service.link && (
                     <Link
                       href={service.link.href}
-                      className="mt-4 text-sm font-semibold text-brand-ink transition-colors hover:text-brand-accent dark:text-white"
+                      className="mt-3 text-sm font-semibold text-brand-ink transition-colors hover:text-brand-accent dark:text-white"
                     >
                       {service.link.label}
                     </Link>
@@ -115,7 +115,7 @@ export function AiRecommendSection() {
           })}
         </Stagger>
 
-        <FadeIn className="mt-10 flex flex-wrap items-center justify-center gap-3" delay={0.1}>
+        <FadeIn className="mt-8 flex flex-wrap items-center justify-center gap-3" delay={0.1}>
           <a
             href={siteConfig.calendly}
             target="_blank"
@@ -133,7 +133,7 @@ export function AiRecommendSection() {
           </Link>
         </FadeIn>
 
-        <p className="mx-auto mt-8 max-w-3xl text-center text-xs leading-relaxed text-brand-muted">
+        <p className="mx-auto mt-6 max-w-3xl text-center text-xs leading-relaxed text-brand-muted">
           <strong className="font-semibold text-brand-ink/70 dark:text-white/70">
             Honest note:
           </strong>{" "}

@@ -75,7 +75,7 @@ export default async function BlogPostPage({ params }: Props) {
 
       <article>
         <header className="gradient-mesh border-b border-brand-ink/8 dark:border-white/10">
-          <div className="container-page pb-14 pt-10 md:pb-16 md:pt-14">
+          <div className="container-page pb-12 pt-10 md:pb-14 md:pt-12">
             <Breadcrumbs
               items={[
                 { label: "Blog", href: "/blog" },
@@ -83,11 +83,11 @@ export default async function BlogPostPage({ params }: Props) {
               ]}
             />
             <Badge variant="accent">{meta.category}</Badge>
-            <h1 className="mt-4 max-w-3xl font-display text-4xl font-bold tracking-tight text-brand-ink md:text-5xl dark:text-white">
+            <h1 className="mt-3 max-w-3xl font-display text-4xl font-bold tracking-tight text-brand-ink md:text-5xl dark:text-white">
               {meta.title}
             </h1>
-            <p className="mt-4 max-w-2xl text-lg text-brand-muted">{meta.description}</p>
-            <div className="mt-6 flex flex-wrap items-center gap-3 text-sm text-brand-muted">
+            <p className="mt-3 max-w-2xl text-lg text-brand-muted">{meta.description}</p>
+            <div className="mt-5 flex flex-wrap items-center gap-3 text-sm text-brand-muted">
               <Link
                 href={`/blog/author/${author.slug}`}
                 className="font-semibold text-brand-ink hover:text-brand-accent dark:text-white"
@@ -102,7 +102,7 @@ export default async function BlogPostPage({ params }: Props) {
           </div>
         </header>
 
-        <div className="container-page py-12 md:py-16">
+        <div className="container-page section-pad">
           <div className="mx-auto max-w-3xl">
             <Mdx source={content} />
           </div>
@@ -110,12 +110,12 @@ export default async function BlogPostPage({ params }: Props) {
       </article>
 
       {related.length > 0 && (
-        <section className="border-t border-brand-ink/8 bg-brand-surface py-14 dark:border-white/10 dark:bg-brand-surface/50">
+        <section className="section-pad border-t border-brand-ink/8 bg-brand-surface dark:border-white/10 dark:bg-brand-surface/50">
           <div className="container-page">
             <h2 className="font-display text-2xl font-bold text-brand-ink dark:text-white">
               Related posts
             </h2>
-            <div className="mt-8 grid gap-5 md:grid-cols-3">
+            <div className="section-gap grid gap-5 md:grid-cols-3">
               {related.map((r) => (
                 <Link
                   key={r.slug}

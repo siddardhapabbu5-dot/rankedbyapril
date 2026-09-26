@@ -56,23 +56,23 @@ const steps = [
 
 export function ProcessSection() {
   return (
-    <section id="process" className="scroll-mt-24 bg-[#FAF8F5] py-16 md:py-20 dark:bg-background">
+    <section id="process" className="section-pad scroll-mt-24 bg-[#FAF8F5] dark:bg-background">
       <div className="container-page">
         <FadeIn className="max-w-3xl">
           <p className="text-[11px] font-semibold uppercase tracking-[0.22em] text-brand-accent">
             Process
           </p>
-          <h2 className="mt-3 font-display text-3xl font-bold tracking-tight text-brand-ink md:text-4xl dark:text-white">
+          <h2 className="mt-2 font-display text-3xl font-bold tracking-tight text-brand-ink md:text-4xl dark:text-white">
             How I work.
           </h2>
-          <p className="mt-5 text-base leading-relaxed text-brand-muted md:text-lg">
+          <p className="mt-3 text-base leading-relaxed text-brand-muted md:text-lg">
             Every project is a little different, but this is generally how I approach the work. I
             start by understanding the business, identify what is getting in the way, and build
             from there based on what the site and the data actually need.
           </p>
         </FadeIn>
 
-        <Stagger className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+        <Stagger className="section-gap grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
           {steps.map((step) => (
             <StaggerItem key={step.number}>
               <article

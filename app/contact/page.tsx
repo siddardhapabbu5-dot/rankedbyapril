@@ -30,7 +30,7 @@ export default function ContactPage() {
         ]}
       />
       <section className="gradient-mesh border-b border-brand-ink/8 dark:border-white/10">
-        <div className="container-page pb-16 pt-10 md:pb-20 md:pt-14">
+        <div className="container-page pb-12 pt-10 md:pb-14 md:pt-12">
           <Breadcrumbs items={[{ label: "Contact" }]} />
           <FadeIn>
             <SectionHeading
@@ -44,7 +44,7 @@ export default function ContactPage() {
       </section>
 
       <section className="section-pad">
-        <div className="container-page grid gap-12 lg:grid-cols-12">
+        <div className="container-page grid gap-8 lg:grid-cols-12">
           <div className="lg:col-span-7">
             <h2 className="font-display text-2xl font-bold text-brand-ink dark:text-white">
               Project inquiry
@@ -105,8 +105,9 @@ export default function ContactPage() {
                   <span>
                     {siteConfig.address.street}
                     <br />
-                    {siteConfig.address.city}, {siteConfig.address.state}{" "}
-                    {siteConfig.address.zip}
+                    {siteConfig.address.city}, {siteConfig.address.state}
+                    <br />
+                    {siteConfig.address.country}
                   </span>
                 </li>
               </ul>
@@ -132,7 +133,7 @@ export default function ContactPage() {
           <div className="mt-6 overflow-hidden rounded-2xl border border-brand-ink/10 dark:border-white/10">
             <iframe
               title="rankedbyapril office location"
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3153.019742386654!2d-122.4194!3d37.7749!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8085808c5b0d0d0d%3A0x0!2sSan%20Francisco%2C%20CA!5e0!3m2!1sen!2sus!4v1700000000000"
+              src="https://www.google.com/maps?q=P2+Poblacion,+Guipos,+Zamboanga+del+Sur,+Philippines&z=14&output=embed"
               className="h-[360px] w-full border-0"
               loading="lazy"
               referrerPolicy="no-referrer-when-downgrade"

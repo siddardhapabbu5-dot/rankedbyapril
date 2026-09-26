@@ -200,20 +200,20 @@ function NamedCard({ card }: { card: AiCard }) {
 
 export function NamedInAiSection() {
   return (
-    <section className="bg-[#1A2228] pb-16 pt-4 text-white md:pb-20 md:pt-6">
+    <section className="section-pad bg-[#1A2228] text-white">
       <div className="container-page">
         <FadeIn className="max-w-3xl">
           <h2 className="font-display text-3xl font-bold tracking-tight text-balance md:text-4xl">
             Named in AI answers,{" "}
             <span className="italic text-[#D5C8D8]">not just</span> Google.
           </h2>
-          <p className="mt-5 text-base leading-relaxed text-white/70 md:text-lg">
+          <p className="mt-3 text-base leading-relaxed text-white/70 md:text-lg">
             Ask the major AI tools a question like &ldquo;what&apos;s the best caregiving
             app,&rdquo; and one of my clients was named in the answer across ChatGPT, Gemini,
             Perplexity, and Google. Same content, different engines.
           </p>
 
-          <div className="mt-6 flex flex-wrap items-center gap-2">
+          <div className="mt-5 flex flex-wrap items-center gap-2">
             <span className="text-xs font-medium uppercase tracking-[0.14em] text-white/45">
               Seen in:
             </span>
@@ -229,7 +229,7 @@ export function NamedInAiSection() {
           </div>
         </FadeIn>
 
-        <Stagger className="mt-10 grid gap-5 md:grid-cols-2">
+        <Stagger className="section-gap grid gap-5 md:grid-cols-2">
           {cards.map((card) => (
             <StaggerItem key={`${card.engine}-${card.query}`}>
               <NamedCard card={card} />
@@ -237,7 +237,7 @@ export function NamedInAiSection() {
           ))}
         </Stagger>
 
-        <p className="mt-8 max-w-3xl text-xs italic leading-relaxed text-white/45">
+        <p className="mt-6 max-w-3xl text-xs italic leading-relaxed text-white/45">
           Recreations of live AI answers from Google AI Overviews, ChatGPT, Perplexity, and
           Gemini. Client names and domains are blurred for confidentiality. Happy to show the
           originals on a call.

@@ -4,7 +4,7 @@ import { siteConfig } from "@/lib/site-config";
 export const authors: Record<string, Author> = {
   april: {
     slug: "april",
-    name: "April Reyes",
+    name: "April Grace Degracia",
     role: "Founder & Strategy Lead",
     bio: "April leads organic growth strategy at rankedbyapril, specializing in SEO systems and AI search visibility for growth-stage brands.",
     image: "/images/team-april.jpg",

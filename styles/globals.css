@@ -6,27 +6,29 @@
 
 :root {
   --background: #ffffff;
-  --foreground: #18233a;
-  --brand-ink: #18233a;
-  --brand-navy: #18233a;
-  --brand-accent: #f05a78;
-  --brand-accent-dark: #d94462;
-  --brand-muted: #667085;
-  --brand-surface: #faf8f5;
-  --brand-ring: #f05a78;
+  --foreground: #4b5563;
+  --brand-ink: #111827;
+  --brand-navy: #111827;
+  --brand-accent: #ff6f91;
+  --brand-accent-dark: #e85a7c;
+  --brand-muted: #6b7280;
+  --brand-body: #4b5563;
+  --brand-surface: #ffffff;
+  --brand-ring: #ff6f91;
   --brand-white: #ffffff;
 }
 
 .dark {
-  --background: #121826;
-  --foreground: #faf8f5;
-  --brand-ink: #faf8f5;
-  --brand-navy: #a8b8d4;
-  --brand-accent: #f05a78;
-  --brand-accent-dark: #ff7a92;
-  --brand-muted: #98a2b3;
-  --brand-surface: #1a2438;
-  --brand-ring: #f05a78;
+  --background: #111827;
+  --foreground: #e5e7eb;
+  --brand-ink: #f9fafb;
+  --brand-navy: #e5e7eb;
+  --brand-accent: #ff6f91;
+  --brand-accent-dark: #ff8aa7;
+  --brand-muted: #9ca3af;
+  --brand-body: #d1d5db;
+  --brand-surface: #1f2937;
+  --brand-ring: #ff6f91;
   --brand-white: #ffffff;
 }
 
@@ -38,6 +40,7 @@
   --color-brand-accent: var(--brand-accent);
   --color-brand-accent-dark: var(--brand-accent-dark);
   --color-brand-muted: var(--brand-muted);
+  --color-brand-body: var(--brand-body);
   --color-brand-surface: var(--brand-surface);
   --color-brand-ring: var(--brand-ring);
   --color-brand-white: var(--brand-white);
@@ -110,13 +113,66 @@ html {
 }
 
 body {
-  background: #faf8f5;
-  color: var(--foreground);
+  background: var(--background);
+  color: var(--brand-body);
   font-family: var(--font-body), ui-sans-serif, system-ui, sans-serif;
+  font-size: 16px;
+  line-height: 1.65;
+  letter-spacing: 0;
+  font-weight: 400;
+}
+
+@media (min-width: 768px) {
+  body {
+    font-size: 18px;
+  }
 }
 
 .dark body {
   background: var(--background);
+}
+
+/* Premium typography — Headings: Manrope */
+.font-display {
+  font-family: var(--font-display-family), ui-sans-serif, system-ui, sans-serif;
+  letter-spacing: -0.03em;
+}
+
+h1.font-display,
+.font-display.text-4xl,
+.font-display.text-5xl,
+.font-display.md\:text-5xl,
+.font-display.md\:text-\[3\.15rem\] {
+  line-height: 1.1;
+  font-weight: 800;
+}
+
+h2.font-display,
+.font-display.text-3xl,
+.font-display.md\:text-4xl {
+  line-height: 1.15;
+  font-weight: 700;
+}
+
+h3.font-display,
+.font-display.text-xl,
+.font-display.text-2xl {
+  font-weight: 600;
+  letter-spacing: -0.02em;
+}
+
+/* Small uppercase labels */
+.text-\[11px\].font-semibold.uppercase,
+.text-xs.font-semibold.uppercase,
+.text-\[10px\].font-medium.uppercase {
+  letter-spacing: 0.08em;
+}
+
+/* Nav link feel */
+nav[aria-label="Primary"] a {
+  font-size: 15px;
+  font-weight: 500;
+  letter-spacing: 0.2px;
 }
 
 ::selection {
@@ -142,28 +198,37 @@ body {
   }
 }
 
+/* Site spacing rhythm:
+   section-pad  = outer section vertical padding (same on every section)
+   section-gap  = space from heading block → first content block
+   prose paragraphs = mt-3 / space-y-3
+*/
 .section-pad {
-  padding-block: 4.5rem;
+  padding-block: 3.5rem; /* 56px */
 }
 
 @media (min-width: 768px) {
   .section-pad {
-    padding-block: 6.5rem;
+    padding-block: 4.5rem; /* 72px */
   }
+}
+
+.section-gap {
+  margin-top: 2rem; /* 32px — heading → content */
 }
 
 .gradient-mesh {
   background:
     radial-gradient(ellipse 80% 50% at 20% -10%, color-mix(in oklab, var(--brand-accent) 16%, transparent), transparent 55%),
-    radial-gradient(ellipse 60% 40% at 90% 10%, color-mix(in oklab, #18233a 10%, transparent), transparent 50%),
-    radial-gradient(ellipse 50% 30% at 50% 100%, color-mix(in oklab, #faf8f5 80%, transparent), transparent 45%),
+    radial-gradient(ellipse 60% 40% at 90% 10%, color-mix(in oklab, var(--brand-ink) 8%, transparent), transparent 50%),
+    radial-gradient(ellipse 50% 30% at 50% 100%, color-mix(in oklab, #ffffff 80%, transparent), transparent 45%),
     var(--background);
 }
 
 .dark .gradient-mesh {
   background:
     radial-gradient(ellipse 80% 50% at 20% -10%, color-mix(in oklab, var(--brand-accent) 20%, transparent), transparent 55%),
-    radial-gradient(ellipse 60% 40% at 90% 10%, color-mix(in oklab, #a8b8d4 12%, transparent), transparent 50%),
+    radial-gradient(ellipse 60% 40% at 90% 10%, color-mix(in oklab, #9ca3af 12%, transparent), transparent 50%),
     var(--background);
 }
 

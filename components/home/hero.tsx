@@ -1,25 +1,27 @@
 "use client";
 
 import Image from "next/image";
-import Link from "next/link";
 import { motion } from "framer-motion";
-
-const stats = [
-  { value: "5+", label: "years growing organic visibility" },
-  { value: "30+", label: "brands & publications" },
-  { value: "250M+", label: "combined organic views across supported sites*" },
-  {
-    value: "AI Overviews",
-    label: "I optimize content for Google's AI answers (GEO)",
-    accent: true,
-  },
-];
+import { useLanguage } from "@/components/providers/language-provider";
 
 export function Hero() {
+  const { t } = useLanguage();
+
+  const stats = [
+    { value: "5+", label: t.hero.stats.years },
+    { value: "30+", label: t.hero.stats.brands },
+    { value: "250M+", label: t.hero.stats.views },
+    {
+      value: "AI Overviews",
+      label: t.hero.stats.aiLabel,
+      accent: true,
+    },
+  ];
+
   return (
-    <section className="relative overflow-hidden bg-[#FAF8F5] dark:bg-background">
+    <section className="relative overflow-hidden bg-background dark:bg-background">
       <div
-        className="pointer-events-none absolute -left-40 top-10 h-[32rem] w-[32rem] rounded-full bg-[#EFE9E0] dark:bg-brand-surface"
+        className="pointer-events-none absolute -left-40 top-10 h-[32rem] w-[32rem] rounded-full bg-brand-ink/5 dark:bg-brand-surface"
         aria-hidden
       />
       <div
@@ -27,62 +29,43 @@ export function Hero() {
         aria-hidden
       />
 
-      <div className="container-page relative grid items-start gap-12 pb-12 pt-10 md:gap-14 md:pb-16 md:pt-14 lg:grid-cols-12">
-        <div className="lg:col-span-7 lg:pt-4">
+      <div className="container-page relative grid items-start gap-10 pb-14 pt-10 md:gap-12 md:pb-16 md:pt-12 lg:grid-cols-12">
+        <div className="lg:col-span-7 lg:pt-2">
           <motion.h1
             initial={{ opacity: 0, y: 18 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.55 }}
-            className="max-w-2xl font-display text-[2.35rem] font-bold leading-[1.12] tracking-tight text-brand-ink text-balance sm:text-5xl md:text-[3.15rem] dark:text-white"
+            className="max-w-2xl font-display text-4xl font-extrabold leading-[1.1] tracking-tight text-brand-ink text-balance sm:text-5xl md:text-6xl lg:text-7xl dark:text-white"
           >
-            SEO that grows your{" "}
-            <span className="italic text-brand-accent">visibility</span>, your traffic, and your{" "}
-            <span className="italic text-brand-accent">revenue</span>.
+            {t.hero.titleBefore}{" "}
+            <span className="italic text-brand-accent">{t.hero.visibility}</span>
+            {t.hero.titleMiddle}{" "}
+            <span className="italic text-brand-accent">{t.hero.revenue}</span>
+            {t.hero.titleAfter}
           </motion.h1>
 
           <motion.p
             initial={{ opacity: 0, y: 18 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.55, delay: 0.08 }}
-            className="mt-6 max-w-xl text-[1.05rem] leading-[1.7] text-brand-muted"
+            className="mt-5 max-w-xl text-lg font-normal leading-[1.6] text-brand-body md:text-xl dark:text-brand-muted"
           >
-            I&apos;m an{" "}
+            {t.hero.bodyBefore}{" "}
             <strong className="font-semibold text-brand-ink dark:text-white">
-              SEO specialist for Shopify, health, beauty, and SaaS brands
+              {t.hero.bodyStrong1}
             </strong>
-            . Audits, technical fixes, site structure,{" "}
+            {t.hero.bodyMid}{" "}
             <strong className="font-semibold text-brand-ink dark:text-white">
-              content strategy, and AI search optimization (AEO/GEO)
+              {t.hero.bodyStrong2}
             </strong>
-            , including for publicly known 7–9 figure Shopify &amp; DTC brands. Working with
-            clients worldwide.
+            {t.hero.bodyAfter}
           </motion.p>
-
-          <motion.div
-            initial={{ opacity: 0, y: 18 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.55, delay: 0.16 }}
-            className="mt-8 flex flex-wrap gap-3"
-          >
-            <Link
-              href="/#results"
-              className="inline-flex items-center justify-center rounded-full bg-[#18233A] px-7 py-3.5 text-[15px] font-semibold text-white transition-opacity hover:opacity-90"
-            >
-              See the results
-            </Link>
-            <Link
-              href="/contact"
-              className="inline-flex items-center justify-center rounded-full border border-[#18233A]/30 bg-transparent px-7 py-3.5 text-[15px] font-semibold text-[#18233A] transition-colors hover:border-[#18233A] dark:border-white/35 dark:text-white"
-            >
-              Get in touch
-            </Link>
-          </motion.div>
 
           <motion.dl
             initial={{ opacity: 0, y: 18 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.55, delay: 0.24 }}
-            className="mt-12 grid grid-cols-2 gap-x-6 gap-y-8 sm:grid-cols-4"
+            transition={{ duration: 0.55, delay: 0.16 }}
+            className="mt-8 grid grid-cols-2 gap-x-6 gap-y-6 sm:grid-cols-4"
           >
             {stats.map((stat) => (
               <div key={stat.value}>
@@ -109,22 +92,22 @@ export function Hero() {
           transition={{ duration: 0.65, delay: 0.1 }}
           className="relative lg:col-span-5"
         >
-          <div className="mb-5 text-center lg:pl-4 lg:text-left">
+          <div className="mb-5 text-center">
             <p className="text-[11px] font-semibold uppercase tracking-[0.24em] text-brand-accent">
-              April Reyes
+              {t.hero.roleLabel}
             </p>
-            <p className="mt-1.5 text-sm font-semibold text-brand-ink dark:text-white">
-              Organic Growth &amp; SEO Specialist | AEO &amp; GEO Expert
+            <p className="mx-auto mt-1.5 max-w-xs text-sm font-semibold text-brand-ink dark:text-white">
+              {t.hero.roleTitle}
             </p>
           </div>
 
-          <div className="relative mx-auto w-full max-w-[380px] lg:ml-auto lg:mr-2">
+          <div className="relative mx-auto w-full max-w-[380px]">
             <div
               className="pointer-events-none absolute -right-10 top-10 h-48 w-48 rounded-full bg-brand-accent/25 blur-3xl"
               aria-hidden
             />
             <div
-              className="pointer-events-none absolute -bottom-4 left-6 grid h-16 w-20 grid-cols-4 gap-1.5 opacity-50"
+              className="pointer-events-none absolute -bottom-4 left-1/2 grid h-16 w-20 -translate-x-1/2 grid-cols-4 gap-1.5 opacity-50"
               aria-hidden
             >
               {Array.from({ length: 12 }).map((_, i) => (
@@ -136,7 +119,7 @@ export function Hero() {
               <div className="relative aspect-[4/5] w-full">
                 <Image
                   src="/images/april-portrait.jpg"
-                  alt="April Reyes — Organic Growth & SEO Specialist"
+                  alt={`${t.hero.roleLabel} — ${t.hero.roleTitle}`}
                   fill
                   priority
                   className="object-cover object-top"

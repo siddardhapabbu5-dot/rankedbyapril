@@ -11,9 +11,9 @@ const buttonVariants = cva(
         default:
           "bg-brand-accent text-white shadow-sm hover:bg-brand-accent-dark",
         secondary:
-          "bg-brand-navy text-white hover:bg-brand-navy/90",
+          "bg-[#111827] text-white hover:bg-[#111827]/90 dark:bg-white dark:text-[#111827] dark:hover:bg-white/90",
         outline:
-          "border border-brand-ink/15 bg-transparent text-brand-ink hover:border-brand-accent hover:text-brand-accent dark:border-white/20 dark:text-white dark:hover:border-brand-accent dark:hover:text-brand-accent",
+          "border border-[#111827]/20 bg-transparent text-[#111827] hover:border-brand-accent hover:text-brand-accent dark:border-white/20 dark:text-white dark:hover:border-brand-accent dark:hover:text-brand-accent",
         ghost:
           "hover:bg-brand-ink/5 hover:text-brand-ink dark:hover:bg-white/10 dark:hover:text-white",
         link: "text-brand-accent underline-offset-4 hover:underline",

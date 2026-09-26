@@ -40,7 +40,7 @@ const pillars = [
 
 export function SearchDoorwaysSection() {
   return (
-    <section className="bg-[#FAF8F5] py-6 pb-16 md:pb-20 dark:bg-background">
+    <section className="section-pad bg-[#FAF8F5] dark:bg-background">
       <div className="container-page">
         <Stagger className="grid gap-5 md:grid-cols-3">
           {pillars.map((pillar) => {
@@ -100,10 +100,10 @@ export function SearchDoorwaysSection() {
               <p className="text-[11px] font-semibold uppercase tracking-[0.2em] text-[#8B6B8E]">
                 Search has more than one doorway
               </p>
-              <h2 className="mt-4 font-display text-3xl font-bold tracking-tight text-brand-ink md:text-4xl dark:text-white">
+              <h2 className="mt-3 font-display text-3xl font-bold tracking-tight text-brand-ink md:text-4xl dark:text-white">
                 You&apos;ve probably heard of SEO.
               </h2>
-              <p className="mt-5 text-base leading-relaxed text-brand-muted md:text-lg">
+              <p className="mt-3 text-base leading-relaxed text-brand-muted md:text-lg">
                 It is still the foundation. But customers now discover brands through classic
                 search results, Google&apos;s AI answers, and generative tools such as ChatGPT and
                 Perplexity. A complete visibility strategy needs to account for all three.

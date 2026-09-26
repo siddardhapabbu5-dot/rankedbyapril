@@ -27,7 +27,7 @@ export function CaseStudiesPreview() {
           </Link>
         </div>
 
-        <Stagger className="mt-12 grid gap-6 lg:grid-cols-3">
+        <Stagger className="section-gap grid gap-5 lg:grid-cols-3">
           {featured.map((study) => (
             <StaggerItem key={study.slug}>
               <Link

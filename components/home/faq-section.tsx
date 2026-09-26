@@ -18,7 +18,7 @@ export function FaqSection({
 }) {
   return (
     <section className="section-pad">
-      <div className="container-page grid gap-10 lg:grid-cols-12">
+      <div className="container-page grid gap-8 lg:grid-cols-12">
         <div className="lg:col-span-4">
           <SectionHeading eyebrow="FAQ" title={title} />
         </div>

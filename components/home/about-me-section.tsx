@@ -14,21 +14,21 @@ const links = [
 
 export function AboutMeSection() {
   return (
-    <section id="about-me" className="scroll-mt-24 bg-white py-16 md:py-20 dark:bg-background">
+    <section id="about-me" className="section-pad scroll-mt-24 bg-white dark:bg-background">
       <div className="container-page">
-        <div className="grid items-start gap-10 lg:grid-cols-12 lg:gap-14">
+        <div className="grid items-start gap-8 lg:grid-cols-12 lg:gap-12">
           <FadeIn className="lg:col-span-7">
             <p className="text-[11px] font-semibold uppercase tracking-[0.22em] text-brand-muted">
               About me
             </p>
-            <h2 className="mt-3 font-display text-3xl font-bold tracking-tight text-brand-ink md:text-4xl dark:text-white">
+            <h2 className="mt-2 font-display text-3xl font-bold tracking-tight text-brand-ink md:text-4xl dark:text-white">
               Hi, I&apos;m April 👋
             </h2>
-            <p className="mt-2 text-sm text-brand-muted">
+            <p className="mt-1.5 text-sm text-brand-muted">
               {siteConfig.address.city}, {siteConfig.address.state}
             </p>
 
-            <div className="mt-6 space-y-4 text-[15px] leading-relaxed text-brand-muted md:text-base">
+            <div className="mt-5 space-y-3 text-[15px] leading-relaxed text-brand-muted md:text-base">
               <p>
                 I&apos;m an{" "}
                 <strong className="font-semibold text-brand-ink dark:text-white">
@@ -54,7 +54,7 @@ export function AboutMeSection() {
               </p>
             </div>
 
-            <div className="mt-8 flex flex-col gap-2 sm:flex-row sm:items-baseline sm:gap-6">
+            <div className="mt-6 flex flex-col gap-2 sm:flex-row sm:items-baseline sm:gap-6">
               <p className="shrink-0 text-[11px] font-semibold uppercase tracking-[0.18em] text-brand-muted">
                 Continuing SEO education
               </p>
@@ -63,7 +63,7 @@ export function AboutMeSection() {
               </p>
             </div>
 
-            <div className="mt-8 border-t border-brand-ink/10 pt-8 dark:border-white/10">
+            <div className="mt-6 border-t border-brand-ink/10 pt-6 dark:border-white/10">
               <p className="text-[15px] leading-relaxed text-brand-muted">
                 Prefer a quick start? Email me your website + target keyword. I&apos;ll reply with
                 first thoughts and a{" "}
@@ -73,7 +73,7 @@ export function AboutMeSection() {
                 .
               </p>
 
-              <div className="mt-5 flex flex-wrap gap-x-6 gap-y-2">
+              <div className="mt-4 flex flex-wrap gap-x-6 gap-y-2">
                 {links.map((link) => (
                   <Link
                     key={link.label}
@@ -88,7 +88,7 @@ export function AboutMeSection() {
                 ))}
               </div>
 
-              <p className="mt-4 text-sm text-brand-muted">
+              <p className="mt-3 text-sm text-brand-muted">
                 Or write directly:{" "}
                 <a
                   href={`mailto:${siteConfig.email}`}
@@ -106,7 +106,7 @@ export function AboutMeSection() {
                 <div className="relative aspect-[4/5] w-full">
                   <Image
                     src="/images/april-portrait.jpg"
-                    alt="April Reyes — SEO specialist and organic growth expert"
+                    alt="April Grace Degracia — SEO specialist and organic growth expert"
                     fill
                     className="object-cover object-top"
                     sizes="(max-width: 1024px) 90vw, 420px"

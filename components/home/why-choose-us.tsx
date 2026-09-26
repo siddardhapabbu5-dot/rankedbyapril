@@ -36,7 +36,7 @@ export function WhyChooseUs() {
           title="You've heard of SEO. Discovery changed."
           description="Customers find brands through classic results, Google AI answers, and tools like ChatGPT and Perplexity. A complete visibility strategy accounts for all three."
         />
-        <Stagger className="mt-12 grid gap-6 md:grid-cols-3">
+        <Stagger className="section-gap grid gap-5 md:grid-cols-3">
           {pillars.map((pillar) => (
             <StaggerItem key={pillar.number}>
               <div className="h-full rounded-2xl border border-brand-ink/8 bg-white p-7 dark:border-white/10 dark:bg-background">

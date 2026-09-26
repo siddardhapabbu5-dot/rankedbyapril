@@ -3,7 +3,12 @@ export type AnalyticsEvent =
   | "newsletter_signup"
   | "whatsapp_click"
   | "calendly_click"
-  | "contact_cta_click";
+  | "contact_cta_click"
+  | "brochure_copy_link"
+  | "brochure_native_share"
+  | "brochure_download_pdf"
+  | "brochure_whatsapp_share"
+  | "brochure_download";
 
 declare global {
   interface Window {

@@ -159,18 +159,18 @@ export function AdaptedSection() {
   return (
     <section
       id="adapted"
-      className="scroll-mt-24 bg-[#1A2228] py-16 text-white md:py-20"
+      className="section-pad scroll-mt-24 bg-[#1A2228] text-white"
     >
       <div className="container-page">
         <FadeIn className="max-w-3xl">
           <p className="text-[11px] font-semibold uppercase tracking-[0.22em] text-white/55">
             GEO · AI Search
           </p>
-          <h2 className="mt-4 font-display text-3xl font-bold tracking-tight text-balance md:text-4xl lg:text-[2.75rem]">
+          <h2 className="mt-3 font-display text-3xl font-bold tracking-tight text-balance md:text-4xl lg:text-[2.75rem]">
             SEO is changing. I&apos;ve already{" "}
             <span className="italic text-[#D5C8D8]">adapted.</span>
           </h2>
-          <p className="mt-5 text-base leading-relaxed text-white/70 md:text-lg">
+          <p className="mt-3 text-base leading-relaxed text-white/70 md:text-lg">
             Search now often answers before the classic blue links, and the content I write is
             what those answers quote. My clients&apos; pages have held citation slots in
             Google&apos;s AI Overviews and been named in answers from AI tools like ChatGPT,
@@ -178,7 +178,7 @@ export function AdaptedSection() {
             and language models can work with.
           </p>
 
-          <ul className="mt-8 grid gap-3 sm:grid-cols-2">
+          <ul className="mt-6 grid gap-3 sm:grid-cols-2">
             {checklist.map((item) => (
               <li key={item} className="flex items-start gap-2.5 text-sm text-white/85">
                 <span className="mt-0.5 inline-flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-[#137333]/20 text-[#6FCF97]">
@@ -191,14 +191,14 @@ export function AdaptedSection() {
 
           <Link
             href="/services/ai-seo"
-            className="mt-8 inline-flex items-center gap-1.5 text-sm font-semibold text-[#D5C8D8] transition-colors hover:text-white"
+            className="mt-6 inline-flex items-center gap-1.5 text-sm font-semibold text-[#D5C8D8] transition-colors hover:text-white"
           >
             I offer this as a service — AEO · GEO · AI Overview optimization
             <span aria-hidden>→</span>
           </Link>
         </FadeIn>
 
-        <Stagger className="mt-12 grid gap-5 md:grid-cols-2">
+        <Stagger className="section-gap grid gap-5 md:grid-cols-2">
           {cards.map((card) => (
             <StaggerItem key={card.query}>
               <AiOverviewCard card={card} />
@@ -206,7 +206,7 @@ export function AdaptedSection() {
           ))}
         </Stagger>
 
-        <p className="mt-8 max-w-3xl text-xs leading-relaxed text-white/45">
+        <p className="mt-6 max-w-3xl text-xs leading-relaxed text-white/45">
           Recreations of live AI answers from Google AI Overviews, ChatGPT, Perplexity, and
           Gemini. Client names and domains are blurred for confidentiality. Happy to show the
           originals on a call.

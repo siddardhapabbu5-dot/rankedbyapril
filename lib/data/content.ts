@@ -204,7 +204,7 @@ export const testimonials: Testimonial[] = [
 
 export const team: TeamMember[] = [
   {
-    name: "April Reyes",
+    name: "April Grace Degracia",
     role: "Founder & Strategy Lead",
     bio: "SEO and organic growth leader focused on systems that compound — from technical foundations to AI search visibility.",
     image: "/images/team-april.jpg",

@@ -139,14 +139,14 @@ export function ResultsSection() {
           <h2 className="mt-3 font-display text-3xl font-bold tracking-tight text-brand-ink md:text-4xl dark:text-white">
             Numbers before adjectives.
           </h2>
-          <p className="mt-4 text-base leading-relaxed text-brand-muted md:text-lg">
+          <p className="mt-3 text-base leading-relaxed text-brand-muted md:text-lg">
             SEO visibility snapshots from brands I&apos;ve contributed SEO and content work to:
             keyword footprints, organic traffic, and the growth curves behind them.
           </p>
         </div>
 
         {/* Match rankedbyshai layout: large + medium on top, then 3, then remaining */}
-        <div className="mt-10 grid gap-4 md:grid-cols-12 md:gap-5">
+        <div className="section-gap grid gap-4 md:grid-cols-12 md:gap-5">
           <ResultCard site={primary} className="md:col-span-7" />
           <ResultCard site={secondary} className="md:col-span-5" />
         </div>
@@ -163,7 +163,7 @@ export function ResultsSection() {
           ))}
         </div>
 
-        <div className="mt-8">
+        <div className="mt-6">
           <button
             type="button"
             onClick={() => setOpen((v) => !v)}
@@ -177,7 +177,7 @@ export function ResultsSection() {
           </button>
 
           {open && (
-            <ul className="mt-4 grid gap-2 sm:grid-cols-2 lg:grid-cols-3">
+            <ul className="mt-3 grid gap-2 sm:grid-cols-2 lg:grid-cols-3">
               {moreResultSites.map((site) => (
                 <li
                   key={site.domain}
@@ -195,7 +195,7 @@ export function ResultsSection() {
           )}
         </div>
 
-        <p className="mt-8 max-w-3xl text-xs leading-relaxed text-brand-muted">
+        <p className="mt-6 max-w-3xl text-xs leading-relaxed text-brand-muted">
           {resultsDisclaimer}
         </p>
       </div>

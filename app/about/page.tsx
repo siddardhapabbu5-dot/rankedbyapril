@@ -33,16 +33,16 @@ export default function AboutPage() {
         ])}
       />
       <section className="gradient-mesh border-b border-brand-ink/8 dark:border-white/10">
-        <div className="container-page pb-16 pt-10 md:pb-20 md:pt-14">
+        <div className="container-page pb-12 pt-10 md:pb-14 md:pt-12">
           <Breadcrumbs items={[{ label: "About" }]} />
           <FadeIn>
             <p className="text-xs font-semibold uppercase tracking-[0.2em] text-brand-accent">
               About rankedbyapril
             </p>
-            <h1 className="mt-3 max-w-3xl font-display text-4xl font-bold tracking-tight text-brand-ink text-balance md:text-5xl dark:text-white">
+            <h1 className="mt-2 max-w-3xl font-display text-4xl font-bold tracking-tight text-brand-ink text-balance md:text-5xl dark:text-white">
               Organic growth operators for brands that refuse to rent every click.
             </h1>
-            <p className="mt-5 max-w-2xl text-lg leading-relaxed text-brand-muted">
+            <p className="mt-3 max-w-2xl text-lg leading-relaxed text-brand-muted">
               We started rankedbyapril to close the gap between SEO reports and business outcomes —
               combining classic search, AI visibility, and conversion-ready websites in one system.
             </p>
@@ -51,13 +51,13 @@ export default function AboutPage() {
       </section>
 
       <section className="section-pad">
-        <div className="container-page grid gap-12 lg:grid-cols-2">
+        <div className="container-page grid gap-8 lg:grid-cols-2">
           <SectionHeading
             eyebrow="Our story"
             title="Built for the SERP that actually exists now"
             description="Blue links still matter. So do AI Overviews and generative answers. We built an agency that treats all three as one visibility problem — with delivery standards enterprise teams trust."
           />
-          <FadeIn delay={0.1} className="space-y-4 text-brand-muted leading-relaxed">
+          <FadeIn delay={0.1} className="space-y-3 text-brand-muted leading-relaxed">
             <p>
               Too many SEO engagements optimize for vanity metrics. Too many website projects ignore
               search until after launch. Too many &ldquo;AI SEO&rdquo; pitches overpromise citations.
@@ -72,17 +72,17 @@ export default function AboutPage() {
       </section>
 
       <section className="section-pad bg-brand-surface dark:bg-brand-surface/50">
-        <div className="container-page grid gap-8 md:grid-cols-2">
-          <FadeIn className="rounded-2xl border border-brand-ink/8 bg-white p-8 dark:border-white/10 dark:bg-background">
+        <div className="container-page grid gap-6 md:grid-cols-2">
+          <FadeIn className="rounded-2xl border border-brand-ink/8 bg-white p-7 dark:border-white/10 dark:bg-background">
             <h2 className="font-display text-2xl font-bold text-brand-ink dark:text-white">Mission</h2>
-            <p className="mt-4 text-brand-muted leading-relaxed">
+            <p className="mt-3 text-brand-muted leading-relaxed">
               Help ambitious brands earn durable demand through search and AI discovery — measured
               in pipeline and revenue, not screenshots alone.
             </p>
           </FadeIn>
-          <FadeIn delay={0.1} className="rounded-2xl border border-brand-ink/8 bg-white p-8 dark:border-white/10 dark:bg-background">
+          <FadeIn delay={0.1} className="rounded-2xl border border-brand-ink/8 bg-white p-7 dark:border-white/10 dark:bg-background">
             <h2 className="font-display text-2xl font-bold text-brand-ink dark:text-white">Vision</h2>
-            <p className="mt-4 text-brand-muted leading-relaxed">
+            <p className="mt-3 text-brand-muted leading-relaxed">
               A world where organic growth is treated as a product: designed, instrumented, and
               improved continuously across classic and generative search.
             </p>
@@ -93,14 +93,14 @@ export default function AboutPage() {
       <section className="section-pad">
         <div className="container-page">
           <SectionHeading eyebrow="Core values" title="How we show up in the work" />
-          <Stagger className="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
+          <Stagger className="section-gap grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
             {values.map((value) => {
               const Icon = valueIcons[value.icon as keyof typeof valueIcons] || Sparkles;
               return (
                 <StaggerItem key={value.title}>
                   <div className="h-full rounded-2xl border border-brand-ink/10 p-6 dark:border-white/10">
                     <Icon className="h-5 w-5 text-brand-accent" />
-                    <h3 className="mt-4 font-display text-lg font-bold text-brand-ink dark:text-white">
+                    <h3 className="mt-3 font-display text-lg font-bold text-brand-ink dark:text-white">
                       {value.title}
                     </h3>
                     <p className="mt-2 text-sm text-brand-muted leading-relaxed">
@@ -121,10 +121,10 @@ export default function AboutPage() {
             title="How we work"
             description="Every engagement is different, but this is the operating rhythm we return to."
           />
-          <Stagger className="mt-12 space-y-0">
+          <Stagger className="section-gap space-y-0">
             {processSteps.map((step, i) => (
               <StaggerItem key={step.number}>
-                <div className="grid gap-4 border-t border-brand-ink/10 py-8 md:grid-cols-12 dark:border-white/10">
+                <div className="grid gap-4 border-t border-brand-ink/10 py-6 md:grid-cols-12 dark:border-white/10">
                   <div className="md:col-span-2">
                     <span className="font-display text-3xl font-bold text-brand-accent">
                       {step.number}
@@ -149,7 +149,7 @@ export default function AboutPage() {
       <section className="section-pad">
         <div className="container-page">
           <SectionHeading eyebrow="Team" title="Operators behind the rankings" />
-          <Stagger className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+          <Stagger className="section-gap grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
             {team.map((member) => (
               <StaggerItem key={member.name}>
                 <article className="overflow-hidden rounded-2xl border border-brand-ink/10 dark:border-white/10">
@@ -159,13 +159,13 @@ export default function AboutPage() {
                       {member.name}
                     </h3>
                     <p className="text-sm text-brand-accent">{member.role}</p>
-                    <p className="mt-3 text-sm text-brand-muted leading-relaxed">{member.bio}</p>
+                    <p className="mt-2 text-sm text-brand-muted leading-relaxed">{member.bio}</p>
                   </div>
                 </article>
               </StaggerItem>
             ))}
           </Stagger>
-          <p className="mt-8 text-sm text-brand-muted">
+          <p className="mt-6 text-sm text-brand-muted">
             Want to work with us?{" "}
             <Link href="/contact" className="font-semibold text-brand-accent hover:underline">
               Start a conversation
