@@ -67,53 +67,53 @@ const ContactCta = dynamic(
   { ssr: false }
 );
 
-/** Below-fold homepage blocks — code-split and mount on scroll. */
+/** Below-fold homepage blocks — code-split and mount on scroll (no tall empty placeholders). */
 export function HomeBelowFold() {
   return (
     <>
-      <DeferredMount minHeight={720}>
+      <DeferredMount>
         <ResultsSection />
       </DeferredMount>
-      <DeferredMount minHeight={520}>
+      <DeferredMount>
         <OrganicGrowthSection />
       </DeferredMount>
-      <DeferredMount minHeight={520}>
+      <DeferredMount>
         <SearchDoorwaysSection />
       </DeferredMount>
-      <DeferredMount minHeight={480}>
+      <DeferredMount>
         <SeoPillarsSection />
       </DeferredMount>
-      <DeferredMount minHeight={640}>
+      <DeferredMount>
         <AdaptedSection />
       </DeferredMount>
-      <DeferredMount minHeight={640}>
+      <DeferredMount>
         <NamedInAiSection />
       </DeferredMount>
-      <DeferredMount minHeight={520}>
+      <DeferredMount>
         <AiRecommendSection />
       </DeferredMount>
-      <DeferredMount minHeight={640}>
+      <DeferredMount>
         <AboutMeSection />
       </DeferredMount>
-      <DeferredMount minHeight={520}>
+      <DeferredMount>
         <ProcessSection />
       </DeferredMount>
-      <DeferredMount minHeight={640}>
+      <DeferredMount>
         <WritingSamplesSection />
       </DeferredMount>
-      <DeferredMount minHeight={520}>
+      <DeferredMount>
         <ServicesOverview />
       </DeferredMount>
-      <DeferredMount minHeight={480}>
+      <DeferredMount>
         <Testimonials />
       </DeferredMount>
-      <DeferredMount minHeight={420}>
+      <DeferredMount>
         <PartnerCtaSection />
       </DeferredMount>
-      <DeferredMount minHeight={420}>
+      <DeferredMount>
         <FaqSection />
       </DeferredMount>
-      <DeferredMount minHeight={360}>
+      <DeferredMount>
         <ContactCta />
       </DeferredMount>
     </>

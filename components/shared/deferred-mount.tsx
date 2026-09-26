@@ -17,7 +17,7 @@ function whenIdle(cb: () => void, timeout = 2500) {
 /** Mount children only when near the viewport — after load+idle to protect TBT/TTI. */
 export function DeferredMount({
   children,
-  minHeight = 480,
+  minHeight = 0,
   rootMargin = "0px",
 }: {
   children: ReactNode;
