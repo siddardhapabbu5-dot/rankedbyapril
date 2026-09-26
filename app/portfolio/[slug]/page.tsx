@@ -1,12 +1,13 @@
 import { notFound } from "next/navigation";
 import Link from "next/link";
 import { Breadcrumbs } from "@/components/shared/breadcrumbs";
-import { ContactCta } from "@/components/shared/contact-cta";
+import { CmsContactCta } from "@/components/shared/cms-contact-cta";
 import { FadeIn, SectionHeading } from "@/components/shared/section-heading";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { JsonLd } from "@/components/seo/json-ld";
-import { caseStudies, getCaseStudyBySlug } from "@/lib/data/content";
+import { caseStudies as baseCases } from "@/lib/data/content";
+import { resolveCaseStudies } from "@/lib/cms/public";
 import { breadcrumbSchema } from "@/lib/schema";
 import { buildMetadata } from "@/lib/seo";
 import { absoluteUrl } from "@/lib/utils";
@@ -14,12 +15,13 @@ import { absoluteUrl } from "@/lib/utils";
 type Props = { params: Promise<{ slug: string }> };
 
 export async function generateStaticParams() {
-  return caseStudies.map((c) => ({ slug: c.slug }));
+  return baseCases.map((c) => ({ slug: c.slug }));
 }
 
 export async function generateMetadata({ params }: Props) {
   const { slug } = await params;
-  const study = getCaseStudyBySlug(slug);
+  const studies = await resolveCaseStudies();
+  const study = studies.find((c) => c.slug === slug);
   if (!study) return {};
   return buildMetadata({
     title: study.title,
@@ -30,7 +32,8 @@ export async function generateMetadata({ params }: Props) {
 
 export default async function CaseStudyPage({ params }: Props) {
   const { slug } = await params;
-  const study = getCaseStudyBySlug(slug);
+  const studies = await resolveCaseStudies();
+  const study = studies.find((c) => c.slug === slug);
   if (!study) notFound();
 
   return (
@@ -151,7 +154,7 @@ export default async function CaseStudyPage({ params }: Props) {
         </div>
       </section>
 
-      <ContactCta />
+      <CmsContactCta />
     </>
   );
 }

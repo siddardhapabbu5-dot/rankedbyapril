@@ -1,7 +1,7 @@
 ﻿import Link from "next/link";
 import { notFound } from "next/navigation";
 import { Breadcrumbs } from "@/components/shared/breadcrumbs";
-import { ContactCta } from "@/components/shared/contact-cta";
+import { CmsContactCta } from "@/components/shared/cms-contact-cta";
 import { FadeIn } from "@/components/shared/section-heading";
 import { Badge } from "@/components/ui/badge";
 import { authors, getAuthor, getPostsByAuthor } from "@/lib/blog";
@@ -82,7 +82,7 @@ export default async function AuthorPage({ params }: Props) {
           )}
         </div>
       </section>
-      <ContactCta />
+      <CmsContactCta />
     </>
   );
 }

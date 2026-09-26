@@ -4,7 +4,8 @@ import { ContactForm } from "@/components/forms/contact-form";
 import { FadeIn, SectionHeading } from "@/components/shared/section-heading";
 import { Button } from "@/components/ui/button";
 import { JsonLd } from "@/components/seo/json-ld";
-import { siteConfig } from "@/lib/site-config";
+import { getContact } from "@/lib/cms/store";
+import { resolveSiteConfig } from "@/lib/cms/public";
 import { breadcrumbSchema, localBusinessSchema } from "@/lib/schema";
 import { buildMetadata } from "@/lib/seo";
 import { absoluteUrl } from "@/lib/utils";
@@ -17,7 +18,9 @@ export const metadata = buildMetadata({
   path: "/contact",
 });
 
-export default function ContactPage() {
+export default async function ContactPage() {
+  const [copy, site] = await Promise.all([getContact(), resolveSiteConfig()]);
+
   return (
     <>
       <JsonLd
@@ -35,9 +38,9 @@ export default function ContactPage() {
           <FadeIn>
             <SectionHeading
               as="h1"
-              eyebrow="Contact"
-              title="Tell us what you're trying to grow"
-              description="Share your site and goals. We'll reply within one business day — often with a free mini audit."
+              eyebrow={copy.eyebrow}
+              title={copy.title}
+              description={copy.description}
             />
           </FadeIn>
         </div>
@@ -47,7 +50,7 @@ export default function ContactPage() {
         <div className="container-page grid gap-8 lg:grid-cols-12">
           <div className="lg:col-span-7">
             <h2 className="font-display text-2xl font-bold text-brand-ink dark:text-white">
-              Project inquiry
+              {copy.formTitle}
             </h2>
             <div className="mt-6">
               <ContactForm />
@@ -57,26 +60,24 @@ export default function ContactPage() {
           <aside className="space-y-6 lg:col-span-5">
             <div className="rounded-2xl border border-brand-ink/10 bg-white p-6 dark:border-white/10 dark:bg-brand-surface">
               <h3 className="font-display text-lg font-bold text-brand-ink dark:text-white">
-                Book a call
+                {copy.bookTitle}
               </h3>
-              <p className="mt-2 text-sm text-brand-muted">
-                Prefer calendar booking? Grab a strategy slot on Calendly.
-              </p>
+              <p className="mt-2 text-sm text-brand-muted">{copy.bookDescription}</p>
               <Button asChild className="mt-5 w-full">
                 <a
-                  href={siteConfig.calendly}
+                  href={site.calendly}
                   target="_blank"
                   rel="noopener noreferrer"
                   data-analytics="calendly_click"
                 >
                   <Calendar className="h-4 w-4" />
-                  Open Calendly
+                  {copy.bookButton}
                 </a>
               </Button>
               <div className="mt-5 overflow-hidden rounded-xl border border-brand-ink/10 dark:border-white/10">
                 <iframe
                   title="Schedule a strategy call"
-                  src={`${siteConfig.calendly}?hide_gdpr_banner=1`}
+                  src={`${site.calendly}?hide_gdpr_banner=1`}
                   className="h-[420px] w-full"
                   loading="lazy"
                 />
@@ -90,30 +91,30 @@ export default function ContactPage() {
               <ul className="mt-5 space-y-4 text-sm text-brand-muted">
                 <li className="flex gap-3">
                   <Mail className="mt-0.5 h-4 w-4 text-brand-accent" />
-                  <a href={`mailto:${siteConfig.email}`} className="hover:text-brand-accent">
-                    {siteConfig.email}
+                  <a href={`mailto:${site.email}`} className="hover:text-brand-accent">
+                    {site.email}
                   </a>
                 </li>
                 <li className="flex gap-3">
                   <Phone className="mt-0.5 h-4 w-4 text-brand-accent" />
-                  <a href={`tel:${siteConfig.phone}`} className="hover:text-brand-accent">
-                    {siteConfig.phone}
+                  <a href={`tel:${site.phone}`} className="hover:text-brand-accent">
+                    {site.phone}
                   </a>
                 </li>
                 <li className="flex gap-3">
                   <MapPin className="mt-0.5 h-4 w-4 text-brand-accent" />
                   <span>
-                    {siteConfig.address.street}
+                    {site.address.street}
                     <br />
-                    {siteConfig.address.city}, {siteConfig.address.state}
+                    {site.address.city}, {site.address.state}
                     <br />
-                    {siteConfig.address.country}
+                    {site.address.country}
                   </span>
                 </li>
               </ul>
               <Button asChild variant="outline" className="mt-5 w-full">
                 <Link
-                  href={`https://wa.me/${siteConfig.whatsapp}`}
+                  href={`https://wa.me/${site.whatsapp}`}
                   target="_blank"
                   rel="noopener noreferrer"
                 >

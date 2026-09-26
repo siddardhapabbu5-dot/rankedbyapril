@@ -2,10 +2,17 @@
 
 import { useEffect, useState, type ComponentType } from "react";
 import { LanguageProvider } from "@/components/providers/language-provider";
+import type { ContactCtaCopy } from "@/components/shared/contact-cta";
+import type { Service } from "@/types";
+
+type BelowProps = {
+  services?: Service[];
+  contactCta?: ContactCtaCopy;
+};
 
 /** Do not load below-fold section modules until after load+idle. */
-export function DeferredHomeBelow() {
-  const [Comp, setComp] = useState<ComponentType | null>(null);
+export function DeferredHomeBelow(props: BelowProps) {
+  const [Comp, setComp] = useState<ComponentType<BelowProps> | null>(null);
 
   useEffect(() => {
     let cancelled = false;
@@ -35,7 +42,7 @@ export function DeferredHomeBelow() {
   if (!Comp) return null;
   return (
     <LanguageProvider>
-      <Comp />
+      <Comp {...props} />
     </LanguageProvider>
   );
 }

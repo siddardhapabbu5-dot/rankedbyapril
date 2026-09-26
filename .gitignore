@@ -24,6 +24,9 @@
 .DS_Store
 *.pem
 
+# Client-edited CMS JSON (local defaults; production uses CONTENT_DIR outside git)
+/content/editable/
+
 # debug
 npm-debug.log*
 yarn-debug.log*

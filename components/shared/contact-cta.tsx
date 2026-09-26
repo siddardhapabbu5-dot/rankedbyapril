@@ -7,16 +7,30 @@ import { FadeIn } from "@/components/shared/section-heading";
 import { useLanguage } from "@/components/providers/language-provider";
 import { siteConfig } from "@/lib/site-config";
 
+export type ContactCtaCopy = {
+  eyebrow?: string;
+  title?: string;
+  description?: string;
+  bookCall?: string;
+  emailLabel?: string;
+  email?: string;
+};
+
 export function ContactCta({
   title,
   description,
-}: {
-  title?: string;
-  description?: string;
-}) {
+  eyebrow,
+  bookCall,
+  emailLabel,
+  email,
+}: ContactCtaCopy) {
   const { t } = useLanguage();
+  const resolvedEyebrow = eyebrow ?? t.contactCta.eyebrow;
   const resolvedTitle = title ?? t.contactCta.title;
   const resolvedDescription = description ?? t.contactCta.description;
+  const resolvedBook = bookCall ?? t.contactCta.bookCall;
+  const resolvedEmailLabel = emailLabel ?? t.contactCta.email;
+  const resolvedEmail = email ?? siteConfig.email;
 
   return (
     <section className="section-pad">
@@ -33,7 +47,7 @@ export function ContactCta({
             />
             <div className="relative max-w-2xl">
               <p className="text-xs font-semibold uppercase tracking-[0.2em] text-brand-accent">
-                {t.contactCta.eyebrow}
+                {resolvedEyebrow}
               </p>
               <h2 className="mt-2 font-display text-3xl font-bold tracking-tight text-white md:text-4xl">
                 {resolvedTitle}
@@ -44,7 +58,7 @@ export function ContactCta({
               <div className="mt-6 flex flex-wrap gap-3">
                 <Button asChild size="lg">
                   <Link href="/contact" data-analytics="contact_cta_click">
-                    {t.contactCta.bookCall}
+                    {resolvedBook}
                     <ArrowRight className="h-4 w-4" />
                   </Link>
                 </Button>
@@ -54,8 +68,8 @@ export function ContactCta({
                   variant="outline"
                   className="border-white/35 bg-transparent text-white hover:border-brand-accent hover:bg-transparent hover:text-brand-accent"
                 >
-                  <a href={`mailto:${siteConfig.email}`}>
-                    {t.contactCta.email} {siteConfig.email}
+                  <a href={`mailto:${resolvedEmail}`}>
+                    {resolvedEmailLabel} {resolvedEmail}
                   </a>
                 </Button>
               </div>

@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { Breadcrumbs } from "@/components/shared/breadcrumbs";
-import { ContactCta } from "@/components/shared/contact-cta";
+import { CmsContactCta } from "@/components/shared/cms-contact-cta";
 import { Mdx } from "@/components/blog/mdx-content";
 import { Badge } from "@/components/ui/badge";
 import { JsonLd } from "@/components/seo/json-ld";
@@ -133,7 +133,7 @@ export default async function BlogPostPage({ params }: Props) {
         </section>
       )}
 
-      <ContactCta />
+      <CmsContactCta />
     </>
   );
 }

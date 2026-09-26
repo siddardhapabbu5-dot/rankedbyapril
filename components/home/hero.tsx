@@ -1,10 +1,11 @@
-import { en } from "@/lib/i18n/dictionaries/en";
+import { resolveHomeContent } from "@/lib/cms/public";
 
 /**
- * Pure server-rendered hero for fast LCP (no client hydration on the LCP path).
+ * Pure server-rendered hero for fast LCP.
+ * Copy comes from the content editor (with built-in defaults).
  */
-export function Hero() {
-  const t = en.hero;
+export async function Hero() {
+  const { hero: t } = await resolveHomeContent();
   const stats = [
     { value: "5+", label: t.stats.years },
     { value: "30+", label: t.stats.brands },

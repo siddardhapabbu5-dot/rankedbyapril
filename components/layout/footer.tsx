@@ -2,16 +2,17 @@ import Link from "next/link";
 import { Logo } from "@/components/layout/logo";
 import { NewsletterForm } from "@/components/forms/newsletter-form";
 import { en } from "@/lib/i18n/dictionaries/en";
-import { siteConfig } from "@/lib/site-config";
+import { resolveHomeContent, resolveSiteConfig } from "@/lib/cms/public";
 
-/** Server-rendered footer (English). Keeps newsletter as the only client island. */
-export function Footer() {
+/** Server-rendered footer. Newsletter is the only client island. */
+export async function Footer() {
   const t = en;
+  const [home, site] = await Promise.all([resolveHomeContent(), resolveSiteConfig()]);
   const year = new Date().getFullYear();
   const socialLinks = [
-    { label: "LinkedIn", href: siteConfig.social.linkedin },
-    { label: "Twitter / X", href: siteConfig.social.twitter },
-    { label: "Instagram", href: siteConfig.social.instagram },
+    { label: "LinkedIn", href: site.social.linkedin },
+    { label: "Twitter / X", href: site.social.twitter },
+    { label: "Instagram", href: site.social.instagram },
   ];
 
   const serviceLinks = [
@@ -47,7 +48,7 @@ export function Footer() {
           <div className="lg:col-span-4">
             <Logo size="md" />
             <p className="mt-5 max-w-sm text-sm leading-relaxed text-brand-muted">
-              {t.footer.blurb}
+              {home.footerBlurb}
             </p>
             <div className="mt-5 flex flex-wrap gap-x-4 gap-y-2">
               {socialLinks.map((link) => (
@@ -111,21 +112,21 @@ export function Footer() {
               </h3>
               <ul className="mt-4 space-y-2.5 text-sm text-brand-muted">
                 <li>
-                  <a href={`mailto:${siteConfig.email}`} className="hover:text-brand-accent">
-                    {siteConfig.email}
+                  <a href={`mailto:${site.email}`} className="hover:text-brand-accent">
+                    {site.email}
                   </a>
                 </li>
                 <li>
-                  <a href={`tel:${siteConfig.phone}`} className="hover:text-brand-accent">
-                    {siteConfig.phone}
+                  <a href={`tel:${site.phone}`} className="hover:text-brand-accent">
+                    {site.phone}
                   </a>
                 </li>
                 <li>
-                  {siteConfig.address.street}
+                  {site.address.street}
                   <br />
-                  {siteConfig.address.city}, {siteConfig.address.state}
+                  {site.address.city}, {site.address.state}
                   <br />
-                  {siteConfig.address.country}
+                  {site.address.country}
                 </li>
               </ul>
             </div>
@@ -134,7 +135,7 @@ export function Footer() {
 
         <div className="mt-8 flex flex-col items-start justify-between gap-4 border-t border-brand-ink/10 pt-6 text-sm text-brand-muted dark:border-white/10 sm:flex-row sm:items-center">
           <p>
-            © {year} {siteConfig.legalName}. {t.footer.rights}
+            © {year} {site.name}. {t.footer.rights}
           </p>
           <div className="flex gap-4">
             {legalLinks.map((item) => (

@@ -4,7 +4,7 @@ import { Breadcrumbs } from "@/components/shared/breadcrumbs";
 import { FadeIn } from "@/components/shared/section-heading";
 import { CaseStudiesGrid } from "@/components/portfolio/case-studies-grid";
 import { JsonLd } from "@/components/seo/json-ld";
-import { siteConfig } from "@/lib/site-config";
+import { resolveCaseStudies, resolveSiteConfig } from "@/lib/cms/public";
 import { breadcrumbSchema } from "@/lib/schema";
 import { buildMetadata } from "@/lib/seo";
 import { absoluteUrl } from "@/lib/utils";
@@ -16,7 +16,9 @@ export const metadata = buildMetadata({
   path: "/portfolio",
 });
 
-export default function PortfolioPage() {
+export default async function PortfolioPage() {
+  const [studies, site] = await Promise.all([resolveCaseStudies(), resolveSiteConfig()]);
+
   return (
     <>
       <JsonLd
@@ -33,7 +35,7 @@ export default function PortfolioPage() {
             <p className="text-[11px] font-semibold uppercase tracking-[0.22em] text-[#5E2A5E] dark:text-brand-accent">
               Case Studies
             </p>
-            <h1 className="mt-2 font-display text-4xl font-bold tracking-tight text-brand-ink text-balance md:text-5xl dark:text-white">
+            <h1 className="mt-4 font-display text-4xl font-bold tracking-tight text-brand-ink text-balance md:text-5xl dark:text-white">
               Challenge, approach,{" "}
               <span className="italic text-[#5E2A5E] dark:text-[#D5C8D8]">result.</span>
             </h1>
@@ -47,7 +49,7 @@ export default function PortfolioPage() {
 
       <section className="bg-[#FAF8F5] pb-10 dark:bg-background">
         <div className="container-page">
-          <CaseStudiesGrid />
+          <CaseStudiesGrid studies={studies} />
 
           <p className="mt-8 max-w-3xl text-xs italic leading-relaxed text-brand-muted">
             * Keyword and traffic figures are snapshots from third-party SEO tools (e.g. Semrush),
@@ -68,7 +70,7 @@ export default function PortfolioPage() {
               mini audit.
             </p>
             <Link
-              href={`mailto:${siteConfig.email}?subject=Free%20mini%20audit`}
+              href={`mailto:${site.email}?subject=Free%20mini%20audit`}
               className="mt-6 inline-flex items-center gap-2 rounded-full bg-[#5E2A5E] px-7 py-3.5 text-sm font-semibold text-white transition-opacity hover:opacity-90"
             >
               <Mail className="h-4 w-4" />

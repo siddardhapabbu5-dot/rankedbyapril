@@ -70,6 +70,31 @@ sudo nginx -t && sudo systemctl reload nginx
 # SSL later: sudo certbot --nginx -d YOUR_DOMAIN -d www.YOUR_DOMAIN
 ```
 
+## Client content editor (`/admin`)
+
+Password-protected page editing at `https://YOUR_DOMAIN/admin`.
+
+On the VPS, keep editable JSON **outside** the app repo so `git reset` / redeploy
+never wipes client corrections:
+
+```bash
+sudo mkdir -p /var/www/rankedbyapril-data
+sudo chown -R $USER:$USER /var/www/rankedbyapril-data
+```
+
+In `/var/www/rankedbyapril/.env.production.local` (or PM2 env):
+
+```bash
+ADMIN_PASSWORD=choose-a-strong-password
+ADMIN_SECRET=long-random-string
+CONTENT_DIR=/var/www/rankedbyapril-data
+NEXT_PUBLIC_SITE_URL=https://YOUR_DOMAIN
+```
+
+Then restart only this app: `pm2 restart rankedbyapril`.
+
+Share with the client: URL `https://YOUR_DOMAIN/admin` + the `ADMIN_PASSWORD`.
+
 ## Updates (later)
 
 ```bash
@@ -77,5 +102,5 @@ cd /var/www/rankedbyapril
 git pull
 npm ci
 npm run build
-pm2 restart rankedbyapril   # only this process
+pm2 restart rankedbyapril   # only this process — CONTENT_DIR data is untouched
 ```

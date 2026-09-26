@@ -1,12 +1,13 @@
 import { notFound } from "next/navigation";
 import Link from "next/link";
 import { Breadcrumbs } from "@/components/shared/breadcrumbs";
-import { ContactCta } from "@/components/shared/contact-cta";
+import { CmsContactCta } from "@/components/shared/cms-contact-cta";
 import { FaqSection } from "@/components/home/faq-section";
 import { FadeIn, SectionHeading, Stagger, StaggerItem } from "@/components/shared/section-heading";
 import { Button } from "@/components/ui/button";
 import { JsonLd } from "@/components/seo/json-ld";
-import { getServiceBySlug, services } from "@/lib/data/services";
+import { services as baseServices } from "@/lib/data/services";
+import { resolveServices } from "@/lib/cms/public";
 import { breadcrumbSchema, faqSchema, serviceSchema } from "@/lib/schema";
 import { buildMetadata } from "@/lib/seo";
 import { absoluteUrl } from "@/lib/utils";
@@ -15,12 +16,13 @@ import { Check } from "lucide-react";
 type Props = { params: Promise<{ slug: string }> };
 
 export async function generateStaticParams() {
-  return services.map((s) => ({ slug: s.slug }));
+  return baseServices.map((s) => ({ slug: s.slug }));
 }
 
 export async function generateMetadata({ params }: Props) {
   const { slug } = await params;
-  const service = getServiceBySlug(slug);
+  const list = await resolveServices();
+  const service = list.find((s) => s.slug === slug);
   if (!service) return {};
   return buildMetadata({
     title: service.title,
@@ -31,7 +33,8 @@ export async function generateMetadata({ params }: Props) {
 
 export default async function ServiceDetailPage({ params }: Props) {
   const { slug } = await params;
-  const service = getServiceBySlug(slug);
+  const list = await resolveServices();
+  const service = list.find((s) => s.slug === slug);
   if (!service) notFound();
 
   return (
@@ -135,7 +138,7 @@ export default async function ServiceDetailPage({ params }: Props) {
       </section>
 
       {service.faqs.length > 0 && <FaqSection faqs={service.faqs} title={`${service.shortTitle} FAQ`} />}
-      <ContactCta />
+      <CmsContactCta />
     </>
   );
 }

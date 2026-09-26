@@ -11,10 +11,10 @@ import {
   ArrowUpRight,
 } from "lucide-react";
 import { Breadcrumbs } from "@/components/shared/breadcrumbs";
-import { ContactCta } from "@/components/shared/contact-cta";
+import { CmsContactCta } from "@/components/shared/cms-contact-cta";
 import { FadeIn, SectionHeading, Stagger, StaggerItem } from "@/components/shared/section-heading";
 import { JsonLd } from "@/components/seo/json-ld";
-import { services } from "@/lib/data/services";
+import { resolveServices } from "@/lib/cms/public";
 import { breadcrumbSchema } from "@/lib/schema";
 import { buildMetadata } from "@/lib/seo";
 import { absoluteUrl } from "@/lib/utils";
@@ -37,7 +37,8 @@ const icons = {
   Layers,
 } as const;
 
-export default function ServicesPage() {
+export default async function ServicesPage() {
+  const services = await resolveServices();
   return (
     <>
       <JsonLd
@@ -94,7 +95,10 @@ export default function ServicesPage() {
         </div>
       </section>
 
-      <ContactCta title="Not sure which service fits?" description="Tell us your goals — we'll recommend the leanest path to impact." />
+      <CmsContactCta
+        title="Not sure which service fits?"
+        description="Tell us your goals — we'll recommend the leanest path to impact."
+      />
     </>
   );
 }

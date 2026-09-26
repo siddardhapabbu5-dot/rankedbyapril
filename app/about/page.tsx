@@ -1,9 +1,10 @@
 import Link from "next/link";
 import { Breadcrumbs } from "@/components/shared/breadcrumbs";
-import { ContactCta } from "@/components/shared/contact-cta";
+import { CmsContactCta } from "@/components/shared/cms-contact-cta";
 import { SectionHeading, FadeIn, Stagger, StaggerItem } from "@/components/shared/section-heading";
 import { JsonLd } from "@/components/seo/json-ld";
 import { processSteps, team, values } from "@/lib/data/content";
+import { getAbout } from "@/lib/cms/store";
 import { breadcrumbSchema } from "@/lib/schema";
 import { buildMetadata } from "@/lib/seo";
 import { absoluteUrl } from "@/lib/utils";
@@ -23,7 +24,9 @@ export const metadata = buildMetadata({
 
 const valueIcons = { TrendingUp, Shield, Layers, Sparkles };
 
-export default function AboutPage() {
+export default async function AboutPage() {
+  const about = await getAbout();
+
   return (
     <>
       <JsonLd
@@ -37,14 +40,13 @@ export default function AboutPage() {
           <Breadcrumbs items={[{ label: "About" }]} />
           <FadeIn>
             <p className="text-xs font-semibold uppercase tracking-[0.2em] text-brand-accent">
-              About rankedbyapril
+              {about.eyebrow}
             </p>
             <h1 className="mt-2 max-w-3xl font-display text-4xl font-bold tracking-tight text-brand-ink text-balance md:text-5xl dark:text-white">
-              Organic growth operators for brands that refuse to rent every click.
+              {about.title}
             </h1>
             <p className="mt-3 max-w-2xl text-lg leading-relaxed text-brand-muted">
-              We started rankedbyapril to close the gap between SEO reports and business outcomes —
-              combining classic search, AI visibility, and conversion-ready websites in one system.
+              {about.intro}
             </p>
           </FadeIn>
         </div>
@@ -53,20 +55,13 @@ export default function AboutPage() {
       <section className="section-pad">
         <div className="container-page grid gap-8 lg:grid-cols-2">
           <SectionHeading
-            eyebrow="Our story"
-            title="Built for the SERP that actually exists now"
-            description="Blue links still matter. So do AI Overviews and generative answers. We built an agency that treats all three as one visibility problem — with delivery standards enterprise teams trust."
+            eyebrow={about.storyEyebrow}
+            title={about.storyTitle}
+            description={about.storyDescription}
           />
           <FadeIn delay={0.1} className="space-y-3 text-brand-muted leading-relaxed">
-            <p>
-              Too many SEO engagements optimize for vanity metrics. Too many website projects ignore
-              search until after launch. Too many &ldquo;AI SEO&rdquo; pitches overpromise citations.
-            </p>
-            <p>
-              rankedbyapril exists for teams who want honest strategy, sharp execution, and systems
-              that keep compounding — audits, content, technical work, GEO, and builds that marketing
-              can actually run.
-            </p>
+            <p>{about.storyP1}</p>
+            <p>{about.storyP2}</p>
           </FadeIn>
         </div>
       </section>
@@ -74,18 +69,16 @@ export default function AboutPage() {
       <section className="section-pad bg-brand-surface dark:bg-brand-surface/50">
         <div className="container-page grid gap-6 md:grid-cols-2">
           <FadeIn className="rounded-2xl border border-brand-ink/8 bg-white p-7 dark:border-white/10 dark:bg-background">
-            <h2 className="font-display text-2xl font-bold text-brand-ink dark:text-white">Mission</h2>
-            <p className="mt-3 text-brand-muted leading-relaxed">
-              Help ambitious brands earn durable demand through search and AI discovery — measured
-              in pipeline and revenue, not screenshots alone.
-            </p>
+            <h2 className="font-display text-2xl font-bold text-brand-ink dark:text-white">
+              {about.missionTitle}
+            </h2>
+            <p className="mt-3 text-brand-muted leading-relaxed">{about.missionBody}</p>
           </FadeIn>
           <FadeIn delay={0.1} className="rounded-2xl border border-brand-ink/8 bg-white p-7 dark:border-white/10 dark:bg-background">
-            <h2 className="font-display text-2xl font-bold text-brand-ink dark:text-white">Vision</h2>
-            <p className="mt-3 text-brand-muted leading-relaxed">
-              A world where organic growth is treated as a product: designed, instrumented, and
-              improved continuously across classic and generative search.
-            </p>
+            <h2 className="font-display text-2xl font-bold text-brand-ink dark:text-white">
+              {about.visionTitle}
+            </h2>
+            <p className="mt-3 text-brand-muted leading-relaxed">{about.visionBody}</p>
           </FadeIn>
         </div>
       </section>
@@ -175,7 +168,7 @@ export default function AboutPage() {
         </div>
       </section>
 
-      <ContactCta />
+      <CmsContactCta />
     </>
   );
 }

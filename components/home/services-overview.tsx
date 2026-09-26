@@ -11,7 +11,8 @@ import {
   ArrowUpRight,
 } from "lucide-react";
 import { SectionHeading, Stagger, StaggerItem } from "@/components/shared/section-heading";
-import { services } from "@/lib/data/services";
+import type { Service } from "@/types";
+import { services as defaultServices } from "@/lib/data/services";
 
 const icons = {
   Search,
@@ -24,14 +25,14 @@ const icons = {
   Layers,
 } as const;
 
-export function ServicesOverview() {
+export function ServicesOverview({ services = defaultServices }: { services?: Service[] }) {
   return (
     <section id="services" className="section-pad scroll-mt-24">
       <div className="container-page">
         <SectionHeading
           eyebrow="Services"
           title="What we take off your plate"
-          description="From audits and technical fixes to AI-ready content and conversion-focused sites â€” strategy through shipping."
+          description="From audits and technical fixes to AI-ready content and conversion-focused sites — strategy through shipping."
         />
         <Stagger className="section-gap grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
           {services.map((service) => {

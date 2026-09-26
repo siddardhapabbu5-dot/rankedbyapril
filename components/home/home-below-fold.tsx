@@ -2,6 +2,8 @@
 
 import dynamic from "next/dynamic";
 import { DeferredMount } from "@/components/shared/deferred-mount";
+import type { ContactCtaCopy } from "@/components/shared/contact-cta";
+import type { Service } from "@/types";
 
 const OrganicGrowthSection = dynamic(
   () =>
@@ -63,8 +65,13 @@ const ContactCta = dynamic(
   { ssr: false }
 );
 
+type Props = {
+  services?: Service[];
+  contactCta?: ContactCtaCopy;
+};
+
 /** Below-fold homepage blocks — code-split and mount on scroll (no tall empty placeholders). */
-export function HomeBelowFold() {
+export function HomeBelowFold({ services, contactCta }: Props) {
   return (
     <div>
       <DeferredMount>
@@ -95,7 +102,7 @@ export function HomeBelowFold() {
         <WritingSamplesSection />
       </DeferredMount>
       <DeferredMount>
-        <ServicesOverview />
+        <ServicesOverview services={services} />
       </DeferredMount>
       <DeferredMount>
         <Testimonials />
@@ -107,7 +114,7 @@ export function HomeBelowFold() {
         <FaqSection />
       </DeferredMount>
       <DeferredMount>
-        <ContactCta />
+        <ContactCta {...contactCta} />
       </DeferredMount>
     </div>
   );

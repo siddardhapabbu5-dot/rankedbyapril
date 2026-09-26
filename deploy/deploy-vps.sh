@@ -37,6 +37,18 @@ if [ ! -f .env.production.local ] && [ ! -f .env.local ]; then
   fi
 fi
 
+# Persist client edits outside the git checkout
+CONTENT_DIR_DEFAULT="/var/www/rankedbyapril-data"
+mkdir -p "$CONTENT_DIR_DEFAULT"
+ENV_FILE=".env.production.local"
+[ -f .env.local ] && ENV_FILE=".env.local"
+if ! grep -q '^CONTENT_DIR=' "$ENV_FILE" 2>/dev/null; then
+  echo "CONTENT_DIR=$CONTENT_DIR_DEFAULT" >> "$ENV_FILE"
+fi
+if ! grep -q '^ADMIN_PASSWORD=.\+' "$ENV_FILE" 2>/dev/null; then
+  echo "WARN: Set ADMIN_PASSWORD in $ENV_FILE so the client can use /admin"
+fi
+
 echo "==> npm ci && build"
 npm ci
 npm run build
