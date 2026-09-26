@@ -2,14 +2,9 @@ import type { Metadata } from "next";
 import { Inter, Manrope } from "next/font/google";
 import { Header } from "@/components/layout/header";
 import { Footer } from "@/components/layout/footer";
-import { WhatsAppButton } from "@/components/shared/whatsapp-button";
-import { AnalyticsClickTracker } from "@/components/shared/analytics-click-tracker";
 import { ThemeProvider } from "@/components/providers/theme-provider";
 import { LanguageProvider } from "@/components/providers/language-provider";
-import { InstallAppButton } from "@/components/shared/install-app-button";
-import { ServiceWorkerRegister } from "@/components/shared/service-worker-register";
-import { HashScroll } from "@/components/shared/hash-scroll";
-import { ScrollRestore } from "@/components/shared/scroll-restore";
+import { DeferredChrome } from "@/components/shared/deferred-chrome";
 import { JsonLd } from "@/components/seo/json-ld";
 import {
   organizationSchema,
@@ -88,12 +83,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
               {children}
             </main>
             <Footer />
-            <InstallAppButton variant="banner" />
-            <WhatsAppButton />
-            <ServiceWorkerRegister />
-            <HashScroll />
-            <ScrollRestore />
-            <AnalyticsClickTracker />
+            <DeferredChrome />
             <JsonLd data={[organizationSchema(), localBusinessSchema(), personSchema()]} />
             {gaId ? (
               <>

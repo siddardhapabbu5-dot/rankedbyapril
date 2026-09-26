@@ -1,7 +1,3 @@
-"use client";
-
-import { useId, useState } from "react";
-import { ChevronDown } from "lucide-react";
 import {
   moreResultSites,
   resultSites,
@@ -10,8 +6,7 @@ import {
 } from "@/lib/data/results";
 import { cn } from "@/lib/utils";
 
-function GrowthChart({ steep = false }: { steep?: boolean }) {
-  const id = useId();
+function GrowthChart({ steep = false, gradId }: { steep?: boolean; gradId: string }) {
   const d = steep
     ? "M0,78 C40,74 70,70 110,58 C160,42 200,28 260,18 C300,12 340,8 380,4 L380,90 L0,90 Z"
     : "M0,72 C50,70 90,66 130,55 C180,40 220,32 270,22 C310,15 345,10 380,6 L380,90 L0,90 Z";
@@ -22,12 +17,12 @@ function GrowthChart({ steep = false }: { steep?: boolean }) {
   return (
     <svg viewBox="0 0 380 90" className="h-full w-full" preserveAspectRatio="none" aria-hidden>
       <defs>
-        <linearGradient id={`${id}-fill`} x1="0" y1="0" x2="0" y2="1">
+        <linearGradient id={gradId} x1="0" y1="0" x2="0" y2="1">
           <stop offset="0%" stopColor="#3B82F6" stopOpacity="0.35" />
           <stop offset="100%" stopColor="#3B82F6" stopOpacity="0.02" />
         </linearGradient>
       </defs>
-      <path d={d} fill={`url(#${id}-fill)`} />
+      <path d={d} fill={`url(#${gradId})`} />
       <path d={line} fill="none" stroke="#3B82F6" strokeWidth="2.5" strokeLinecap="round" />
       <line
         x1="380"
@@ -84,7 +79,10 @@ function ResultCard({ site, className }: { site: ResultSite; className?: string 
           )}
         >
           <div className="absolute inset-x-3 bottom-0 top-6 md:inset-x-4">
-            <GrowthChart steep={Boolean(site.keywordsGrowth)} />
+            <GrowthChart
+              steep={Boolean(site.keywordsGrowth)}
+              gradId={`results-fill-${site.domain.replace(/[^a-z0-9]/gi, "-")}`}
+            />
           </div>
           <div className="absolute right-3 top-2 flex flex-col items-end gap-1 text-[10px] font-semibold text-brand-ink/70 dark:text-white/70">
             <span className="inline-flex items-center gap-1 rounded-md bg-white/80 px-1.5 py-0.5 dark:bg-brand-ink/40">
@@ -124,7 +122,6 @@ function ResultCard({ site, className }: { site: ResultSite; className?: string 
 }
 
 export function ResultsSection() {
-  const [open, setOpen] = useState(false);
   const [primary, secondary, ...rest] = resultSites;
   const topSecondary = rest.slice(0, 3);
   const bottomRow = rest.slice(3);
@@ -145,7 +142,6 @@ export function ResultsSection() {
           </p>
         </div>
 
-        {/* Match rankedbyshai layout: large + medium on top, then 3, then remaining */}
         <div className="section-gap grid gap-4 md:grid-cols-12 md:gap-5">
           <ResultCard site={primary} className="md:col-span-7" />
           <ResultCard site={secondary} className="md:col-span-5" />
@@ -163,37 +159,28 @@ export function ResultsSection() {
           ))}
         </div>
 
-        <div className="mt-6">
-          <button
-            type="button"
-            onClick={() => setOpen((v) => !v)}
-            className="inline-flex items-center gap-2 text-sm font-semibold text-brand-ink transition-colors hover:text-brand-accent dark:text-white"
-            aria-expanded={open}
-          >
+        <details className="mt-6 group">
+          <summary className="inline-flex cursor-pointer list-none items-center gap-2 text-sm font-semibold text-brand-ink transition-colors hover:text-brand-accent dark:text-white [&::-webkit-details-marker]:hidden">
             More sites I&apos;ve supported +{moreResultSites.length}
-            <ChevronDown
-              className={cn("h-4 w-4 transition-transform", open && "rotate-180")}
+            <span
+              aria-hidden
+              className="inline-block h-0 w-0 border-x-[4px] border-t-[5px] border-x-transparent border-t-current transition-transform group-open:rotate-180"
             />
-          </button>
-
-          {open && (
-            <ul className="mt-3 grid gap-2 sm:grid-cols-2 lg:grid-cols-3">
-              {moreResultSites.map((site) => (
-                <li
-                  key={site.domain}
-                  className="flex items-center justify-between gap-3 rounded-xl border border-brand-ink/8 bg-brand-surface px-4 py-3 text-sm dark:border-white/10 dark:bg-brand-surface"
-                >
-                  <span className="font-medium text-brand-ink dark:text-white">
-                    {site.domain}
-                  </span>
-                  <span className="text-brand-muted">
-                    {site.keywords} kw · {site.traffic}
-                  </span>
-                </li>
-              ))}
-            </ul>
-          )}
-        </div>
+          </summary>
+          <ul className="mt-3 grid gap-2 sm:grid-cols-2 lg:grid-cols-3">
+            {moreResultSites.map((site) => (
+              <li
+                key={site.domain}
+                className="flex items-center justify-between gap-3 rounded-xl border border-brand-ink/8 bg-brand-surface px-4 py-3 text-sm dark:border-white/10 dark:bg-brand-surface"
+              >
+                <span className="font-medium text-brand-ink dark:text-white">{site.domain}</span>
+                <span className="text-brand-muted">
+                  {site.keywords} kw · {site.traffic}
+                </span>
+              </li>
+            ))}
+          </ul>
+        </details>
 
         <p className="mt-6 max-w-3xl text-xs leading-relaxed text-brand-muted">
           {resultsDisclaimer}

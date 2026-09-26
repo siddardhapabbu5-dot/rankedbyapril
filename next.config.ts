@@ -41,7 +41,7 @@ const nextConfig: NextConfig = {
     ],
   },
   experimental: {
-    optimizePackageImports: ["lucide-react"],
+    optimizePackageImports: ["lucide-react", "@radix-ui/react-accordion"],
   },
   async headers() {
     return [
