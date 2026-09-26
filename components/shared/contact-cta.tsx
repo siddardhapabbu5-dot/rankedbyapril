@@ -24,12 +24,15 @@ export function ContactCta({
   emailLabel,
   email,
 }: ContactCtaCopy) {
-  const { t } = useLanguage();
-  const resolvedEyebrow = eyebrow ?? t.contactCta.eyebrow;
-  const resolvedTitle = title ?? t.contactCta.title;
-  const resolvedDescription = description ?? t.contactCta.description;
-  const resolvedBook = bookCall ?? t.contactCta.bookCall;
-  const resolvedEmailLabel = emailLabel ?? t.contactCta.email;
+  const { locale, t } = useLanguage();
+  const useDict = locale !== "en";
+  const resolvedEyebrow = useDict ? t.contactCta.eyebrow : eyebrow ?? t.contactCta.eyebrow;
+  const resolvedTitle = useDict ? t.contactCta.title : title ?? t.contactCta.title;
+  const resolvedDescription = useDict
+    ? t.contactCta.description
+    : description ?? t.contactCta.description;
+  const resolvedBook = useDict ? t.contactCta.bookCall : bookCall ?? t.contactCta.bookCall;
+  const resolvedEmailLabel = useDict ? t.contactCta.email : emailLabel ?? t.contactCta.email;
   const resolvedEmail = email ?? siteConfig.email;
 
   return (

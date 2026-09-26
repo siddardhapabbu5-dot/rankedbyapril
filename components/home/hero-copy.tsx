@@ -1,14 +1,14 @@
 "use client";
 
 import type { ReactNode } from "react";
-import { useLanguage } from "@/components/providers/language-provider";
+import { LanguageProvider, useLanguage } from "@/components/providers/language-provider";
 import { defaultLocale } from "@/lib/i18n/config";
 
 /**
  * Hydrates hero copy only when the locale differs from the SSR default (English).
  * Keeps the LCP text in static HTML for the common case.
  */
-export function HeroCopy({ fallback }: { fallback: ReactNode }) {
+function HeroCopyInner({ fallback }: { fallback: ReactNode }) {
   const { locale, t } = useLanguage();
 
   if (locale === defaultLocale) return <>{fallback}</>;
@@ -39,7 +39,7 @@ export function HeroCopy({ fallback }: { fallback: ReactNode }) {
         {h.bodyAfter}
       </p>
 
-      <dl className="mt-8 grid grid-cols-2 gap-x-6 gap-y-6 sm:grid-cols-4">
+      <dl className="mt-8 hidden grid-cols-2 gap-x-6 gap-y-6 sm:grid sm:grid-cols-4">
         {stats.map((stat) => (
           <div key={stat.value}>
             <dt
@@ -58,5 +58,37 @@ export function HeroCopy({ fallback }: { fallback: ReactNode }) {
         ))}
       </dl>
     </>
+  );
+}
+
+function HeroRoleInner({ fallback }: { fallback: ReactNode }) {
+  const { locale, t } = useLanguage();
+  if (locale === defaultLocale) return <>{fallback}</>;
+  return (
+    <>
+      <p className="text-[11px] font-semibold uppercase tracking-[0.24em] text-brand-accent-dark dark:text-brand-accent">
+        {t.hero.roleLabel}
+      </p>
+      <p className="mx-auto mt-1.5 max-w-xs text-sm font-semibold text-brand-ink dark:text-white">
+        {t.hero.roleTitle}
+      </p>
+    </>
+  );
+}
+
+/** Client island around SSR English hero text — swaps Visayan/Tagalog after language change. */
+export function HeroLocalized({ fallback }: { fallback: ReactNode }) {
+  return (
+    <LanguageProvider>
+      <HeroCopyInner fallback={fallback} />
+    </LanguageProvider>
+  );
+}
+
+export function HeroRoleLocalized({ fallback }: { fallback: ReactNode }) {
+  return (
+    <LanguageProvider>
+      <HeroRoleInner fallback={fallback} />
+    </LanguageProvider>
   );
 }

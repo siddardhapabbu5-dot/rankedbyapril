@@ -88,14 +88,12 @@ export function Header() {
           </Link>
           <LanguageProvider>
             <HeaderExtras />
-          </LanguageProvider>
-          <Link
-            href="/contact"
-            className="hidden rounded-full bg-gradient-to-r from-[#E84A6A] to-[#F05A78] px-4 py-2.5 text-sm font-semibold text-white shadow-sm transition-transform hover:scale-[1.02] xl:inline-flex"
-          >
-            {t.nav.hireMe}
-          </Link>
-          <LanguageProvider>
+            <Link
+              href="/contact"
+              className="hidden rounded-full bg-gradient-to-r from-[#E84A6A] to-[#F05A78] px-4 py-2.5 text-sm font-semibold text-white shadow-sm transition-transform hover:scale-[1.02] xl:inline-flex"
+            >
+              {t.nav.hireMe}
+            </Link>
             <MobileNav
               navItems={navItems}
               labels={{
