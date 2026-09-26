@@ -1,5 +1,3 @@
-"use client";
-
 import Image from "next/image";
 import { FadeIn, Stagger, StaggerItem } from "@/components/shared/section-heading";
 

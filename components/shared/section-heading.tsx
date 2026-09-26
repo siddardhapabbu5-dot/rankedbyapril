@@ -1,12 +1,4 @@
-"use client";
-
-import { motion, type Variants } from "framer-motion";
 import { cn } from "@/lib/utils";
-
-const fadeUp: Variants = {
-  hidden: { opacity: 0, y: 24 },
-  visible: { opacity: 1, y: 0 },
-};
 
 type SectionHeadingProps = {
   eyebrow?: string;
@@ -28,20 +20,15 @@ export function SectionHeading({
 }: SectionHeadingProps) {
   const HeadingTag = as;
   return (
-    <motion.div
-      variants={fadeUp}
-      initial="hidden"
-      whileInView="visible"
-      viewport={{ once: true, margin: "-80px" }}
-      transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
+    <div
       className={cn(
-        "max-w-2xl",
+        "max-w-2xl animate-fade-up",
         align === "center" && "mx-auto text-center",
         className
       )}
     >
       {eyebrow && (
-        <p className="mb-2 text-xs font-semibold uppercase tracking-[0.08em] text-brand-accent">
+        <p className="mb-2 text-xs font-semibold uppercase tracking-[0.08em] text-brand-accent-dark dark:text-brand-accent">
           {eyebrow}
         </p>
       )}
@@ -60,7 +47,7 @@ export function SectionHeading({
           {description}
         </p>
       )}
-    </motion.div>
+    </div>
   );
 }
 
@@ -90,17 +77,7 @@ export function Stagger({
   children: React.ReactNode;
   className?: string;
 }) {
-  return (
-    <motion.div
-      initial="hidden"
-      whileInView="visible"
-      viewport={{ once: true, margin: "-60px" }}
-      transition={{ staggerChildren: 0.08 }}
-      className={className}
-    >
-      {children}
-    </motion.div>
-  );
+  return <div className={className}>{children}</div>;
 }
 
 export function StaggerItem({
@@ -110,13 +87,5 @@ export function StaggerItem({
   children: React.ReactNode;
   className?: string;
 }) {
-  return (
-    <motion.div
-      variants={fadeUp}
-      transition={{ duration: 0.45, ease: [0.22, 1, 0.36, 1] }}
-      className={className}
-    >
-      {children}
-    </motion.div>
-  );
+  return <div className={cn("animate-fade-up", className)}>{children}</div>;
 }

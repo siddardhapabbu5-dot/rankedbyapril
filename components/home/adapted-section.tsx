@@ -1,5 +1,3 @@
-"use client";
-
 import Link from "next/link";
 import { ArrowUpRight, Check, Plus, Search } from "lucide-react";
 import { FadeIn, Stagger, StaggerItem } from "@/components/shared/section-heading";
@@ -29,13 +27,13 @@ const cards: OverviewCard[] = [
     query: "how fast does a 500W electric bike go",
     parts: [
       { text: "A 500W electric bike can typically reach speeds of " },
-      { text: "20–25 mph (32–40 km/h)", highlight: true },
+      { text: "20â€“25 mph (32â€“40 km/h)", highlight: true },
       {
-        text: " on flat terrain. However, the actual speed can vary based on the rider's weight, the bike's design, and the terrain…",
+        text: " on flat terrain. However, the actual speed can vary based on the rider's weight, the bike's design, and the terrainâ€¦",
       },
     ],
     source: "isinwheel.com",
-    sourceNote: "Ecommerce blog · written by April",
+    sourceNote: "Ecommerce blog Â· written by April",
     metric: "AI Overview source",
     border: "border-t-[#5B8DEF]",
     href: "https://isinwheel.com",
@@ -46,7 +44,7 @@ const cards: OverviewCard[] = [
       { text: "The upfront cost of a mini cow generally ranges from " },
       { text: "$500 to $12,000+", highlight: true },
       {
-        text: ", with most popular pet and milk breeds falling between $1,500 and $10,000…",
+        text: ", with most popular pet and milk breeds falling between $1,500 and $10,000â€¦",
       },
     ],
     source: "clientsite.net",
@@ -60,11 +58,11 @@ const cards: OverviewCard[] = [
       { text: "The best caregiver apps depend on your specific needs: " },
       { text: "[client]", highlight: true },
       {
-        text: " is highly recommended for all-in-one care coordination, with a shared hub for calendars, tasks, and medical documents…",
+        text: " is highly recommended for all-in-one care coordination, with a shared hub for calendars, tasks, and medical documentsâ€¦",
       },
     ],
     source: "saasclient.com",
-    sourceNote: "SaaS · caregiving platform",
+    sourceNote: "SaaS Â· caregiving platform",
     metric: "recommended #1 in the answer",
     border: "border-t-[#3D6B5E]",
   },
@@ -74,14 +72,14 @@ const cards: OverviewCard[] = [
       {
         text: "Mini and regular Highland cows share the same Scottish genetics, shaggy coats, and docile personalities. The primary difference is size: standard Highlands stand ",
       },
-      { text: "48–54 inches", highlight: true },
+      { text: "48â€“54 inches", highlight: true },
       { text: ", while minis stand " },
-      { text: "36–42 inches", highlight: true },
-      { text: "…" },
+      { text: "36â€“42 inches", highlight: true },
+      { text: "â€¦" },
     ],
     source: "clientsite.net",
-    sourceNote: "Lifestyle · farm & ranch",
-    metric: "cited 6× across one answer",
+    sourceNote: "Lifestyle Â· farm & ranch",
+    metric: "cited 6Ã— across one answer",
     border: "border-t-[#8B6B8E]",
   },
 ];
@@ -147,7 +145,7 @@ function AiOverviewCard({ card }: { card: OverviewCard }) {
             </div>
           </div>
           <p className="mt-2 text-xs font-semibold text-[#137333]">
-            · {card.metric}
+            Â· {card.metric}
           </p>
         </div>
       </div>
@@ -164,7 +162,7 @@ export function AdaptedSection() {
       <div className="container-page">
         <FadeIn className="max-w-3xl">
           <p className="text-[11px] font-semibold uppercase tracking-[0.22em] text-white/55">
-            GEO · AI Search
+            GEO Â· AI Search
           </p>
           <h2 className="mt-3 font-display text-3xl font-bold tracking-tight text-balance md:text-4xl lg:text-[2.75rem]">
             SEO is changing. I&apos;ve already{" "}
@@ -193,8 +191,8 @@ export function AdaptedSection() {
             href="/services/ai-seo"
             className="mt-6 inline-flex items-center gap-1.5 text-sm font-semibold text-[#D5C8D8] transition-colors hover:text-white"
           >
-            I offer this as a service — AEO · GEO · AI Overview optimization
-            <span aria-hidden>→</span>
+            I offer this as a service â€” AEO Â· GEO Â· AI Overview optimization
+            <span aria-hidden>â†’</span>
           </Link>
         </FadeIn>
 

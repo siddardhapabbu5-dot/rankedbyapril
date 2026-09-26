@@ -4,7 +4,6 @@ import { useState } from "react";
 import Link from "next/link";
 import { ArrowUpRight, Copy, Check, FileText, Mail } from "lucide-react";
 import { FadeIn } from "@/components/shared/section-heading";
-import { downloadBrochurePdf } from "@/lib/generate-brochure-pdf";
 import { trackEvent } from "@/lib/analytics";
 import { siteConfig } from "@/lib/site-config";
 
@@ -32,6 +31,7 @@ export function PartnerCtaSection() {
     if (pdfLoading) return;
     setPdfLoading(true);
     try {
+      const { downloadBrochurePdf } = await import("@/lib/generate-brochure-pdf");
       await downloadBrochurePdf();
       trackEvent("brochure_download_pdf", { location: "partner_cta" });
     } catch {

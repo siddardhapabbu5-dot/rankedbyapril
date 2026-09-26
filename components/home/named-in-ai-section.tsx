@@ -1,5 +1,3 @@
-"use client";
-
 import type { ReactNode } from "react";
 import { Search } from "lucide-react";
 import { FadeIn, Stagger, StaggerItem } from "@/components/shared/section-heading";
@@ -35,13 +33,13 @@ const cards: AiCard[] = [
       { text: " is a " },
       { text: "top pick", highlight: true },
       {
-        text: ": a shared calendar, medication tracking, document storage, and family communication in one place, frequently recommended for families coordinating care…",
+        text: ": a shared calendar, medication tracking, document storage, and family communication in one place, frequently recommended for families coordinating careâ€¦",
       },
     ],
     sourceLabel: "saasclient.com",
     footer: (
       <>
-        SaaS · caregiving platform · named the{" "}
+        SaaS Â· caregiving platform Â· named the{" "}
         <strong className="font-semibold">top pick</strong> for family care coordination
       </>
     ),
@@ -57,13 +55,13 @@ const cards: AiCard[] = [
       { text: " acts as a " },
       { text: "centralized command center", highlight: true },
       {
-        text: ": shared calendars, task assignments, secure document storage, and in-app messaging, plus AI guidance to help you navigate next steps…",
+        text: ": shared calendars, task assignments, secure document storage, and in-app messaging, plus AI guidance to help you navigate next stepsâ€¦",
       },
     ],
     sourceLabel: "saasclient.com",
     footer: (
       <>
-        SaaS · caregiving platform · named <strong className="font-semibold">#1</strong> for
+        SaaS Â· caregiving platform Â· named <strong className="font-semibold">#1</strong> for
         all-in-one family coordination
       </>
     ),
@@ -79,13 +77,13 @@ const cards: AiCard[] = [
       { text: " is a " },
       { text: "top option", highlight: true },
       {
-        text: ": easy to share updates, calendars, medications, and documents with multiple caregivers, and good for family communication and planning…",
+        text: ": easy to share updates, calendars, medications, and documents with multiple caregivers, and good for family communication and planningâ€¦",
       },
     ],
     sourceLabel: "saasclient.com",
     footer: (
       <>
-        SaaS · caregiving platform · named a{" "}
+        SaaS Â· caregiving platform Â· named a{" "}
         <strong className="font-semibold">top pick</strong>, cited across sources
       </>
     ),
@@ -102,12 +100,12 @@ const cards: AiCard[] = [
         text: "'s mini cow collection if you want an official design. Tees start around ",
       },
       { text: "$29.95", highlight: true },
-      { text: "…" },
+      { text: "â€¦" },
     ],
     sourceLabel: "clientstore.com",
     footer: (
       <>
-        Creator-led lifestyle ecommerce · named in the written answer + ChatGPT shopping results
+        Creator-led lifestyle ecommerce Â· named in the written answer + ChatGPT shopping results
       </>
     ),
     border: "border-t-[#C45C8A]",

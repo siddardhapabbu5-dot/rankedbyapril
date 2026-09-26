@@ -1,5 +1,3 @@
-"use client";
-
 import { FadeIn } from "@/components/shared/section-heading";
 
 export function OrganicGrowthSection() {

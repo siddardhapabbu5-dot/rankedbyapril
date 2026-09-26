@@ -10,7 +10,7 @@
   --brand-ink: #111827;
   --brand-navy: #111827;
   --brand-accent: #ff6f91;
-  --brand-accent-dark: #e85a7c;
+  --brand-accent-dark: #c2185b;
   --brand-muted: #6b7280;
   --brand-body: #4b5563;
   --brand-surface: #ffffff;
@@ -205,6 +205,8 @@ nav[aria-label="Primary"] a {
 */
 .section-pad {
   padding-block: 3.5rem; /* 56px */
+  content-visibility: auto;
+  contain-intrinsic-size: auto 520px;
 }
 
 @media (min-width: 768px) {

@@ -1,5 +1,3 @@
-"use client";
-
 import { Search, Sparkles, Bot } from "lucide-react";
 import { SectionHeading, Stagger, StaggerItem } from "@/components/shared/section-heading";
 

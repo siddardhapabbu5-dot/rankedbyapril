@@ -1,5 +1,3 @@
-"use client";
-
 import { ArrowUpRight, Search, Sparkles } from "lucide-react";
 import { FadeIn, Stagger, StaggerItem } from "@/components/shared/section-heading";
 import { cn } from "@/lib/utils";

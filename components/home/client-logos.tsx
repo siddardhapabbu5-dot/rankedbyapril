@@ -1,5 +1,3 @@
-"use client";
-
 import { FadeIn } from "@/components/shared/section-heading";
 
 type Brand = { name: string; color: string; mark: string };
@@ -51,7 +49,7 @@ export function ClientLogos() {
           <div className="section-gap grid gap-8 lg:grid-cols-2 lg:gap-12">
             <div>
               <p className="text-[11px] font-semibold uppercase tracking-[0.18em] text-brand-ink dark:text-white">
-                Ecommerce · SEO &amp; content
+                Ecommerce Â· SEO &amp; content
               </p>
               <ul className="mt-3 flex flex-wrap gap-2.5">
                 {ecommerce.map((brand) => (
@@ -62,7 +60,7 @@ export function ClientLogos() {
 
             <div>
               <p className="text-[11px] font-semibold uppercase tracking-[0.18em] text-brand-ink dark:text-white">
-                SaaS · long-form SEO content
+                SaaS Â· long-form SEO content
               </p>
               <ul className="mt-3 flex flex-wrap gap-2.5">
                 {saas.map((brand) => (

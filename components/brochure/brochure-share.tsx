@@ -5,7 +5,6 @@ import Image from "next/image";
 import { Check, Copy, Download, FileText, MessageCircle, Share2 } from "lucide-react";
 import { siteConfig } from "@/lib/site-config";
 import { trackEvent } from "@/lib/analytics";
-import { downloadBrochurePdf } from "@/lib/generate-brochure-pdf";
 
 const brochurePath = "/whatsapp-brochure-v2.png";
 
@@ -58,6 +57,7 @@ export function BrochureShareActions({ pageUrl }: { pageUrl: string }) {
     if (pdfLoading) return;
     setPdfLoading(true);
     try {
+      const { downloadBrochurePdf } = await import("@/lib/generate-brochure-pdf");
       await downloadBrochurePdf();
       trackEvent("brochure_download_pdf");
     } catch {

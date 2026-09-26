@@ -1,5 +1,3 @@
-"use client";
-
 import Link from "next/link";
 import {
   Code2,
@@ -33,7 +31,7 @@ export function ServicesOverview() {
         <SectionHeading
           eyebrow="Services"
           title="What we take off your plate"
-          description="From audits and technical fixes to AI-ready content and conversion-focused sites — strategy through shipping."
+          description="From audits and technical fixes to AI-ready content and conversion-focused sites â€” strategy through shipping."
         />
         <Stagger className="section-gap grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
           {services.map((service) => {

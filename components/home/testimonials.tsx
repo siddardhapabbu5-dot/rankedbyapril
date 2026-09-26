@@ -1,5 +1,3 @@
-"use client";
-
 import { Star } from "lucide-react";
 import { SectionHeading, Stagger, StaggerItem } from "@/components/shared/section-heading";
 import { testimonials } from "@/lib/data/content";
@@ -18,7 +16,7 @@ export function Testimonials() {
           {testimonials.map((t) => (
             <StaggerItem key={t.author}>
               <blockquote className="flex h-full flex-col rounded-2xl border border-brand-ink/8 bg-white p-7 dark:border-white/10 dark:bg-background">
-                <div className="flex gap-0.5" aria-label={`${t.rating} out of 5 stars`}>
+                <div className="flex gap-0.5" role="img" aria-label={`${t.rating} out of 5 stars`}>
                   {Array.from({ length: t.rating }).map((_, i) => (
                     <Star
                       key={i}

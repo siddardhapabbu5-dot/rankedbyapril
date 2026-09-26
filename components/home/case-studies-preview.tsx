@@ -1,5 +1,3 @@
-"use client";
-
 import Link from "next/link";
 import { ArrowUpRight } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
@@ -16,7 +14,7 @@ export function CaseStudiesPreview() {
           <SectionHeading
             eyebrow="Results"
             title="Numbers before adjectives"
-            description="SEO and AI visibility snapshots from brands we've helped grow — traffic, keywords, and citation wins."
+            description="SEO and AI visibility snapshots from brands we've helped grow â€” traffic, keywords, and citation wins."
           />
           <Link
             href="/portfolio"

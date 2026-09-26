@@ -1,5 +1,3 @@
-"use client";
-
 import Link from "next/link";
 import { FadeIn } from "@/components/shared/section-heading";
 import { cn } from "@/lib/utils";
@@ -68,7 +66,7 @@ export function SeoPillarsSection() {
                 className="inline-flex items-center gap-1.5 text-sm font-semibold text-[#5E2A5E] transition-colors hover:text-brand-accent dark:text-[#D4A8D4]"
               >
                 See how I&apos;ve adapted
-                <span aria-hidden>↓</span>
+                <span aria-hidden>â†“</span>
               </Link>
             </div>
           </div>

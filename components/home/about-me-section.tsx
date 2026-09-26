@@ -1,5 +1,3 @@
-"use client";
-
 import Image from "next/image";
 import Link from "next/link";
 import { ArrowUpRight } from "lucide-react";
@@ -22,7 +20,7 @@ export function AboutMeSection() {
               About me
             </p>
             <h2 className="mt-2 font-display text-3xl font-bold tracking-tight text-brand-ink md:text-4xl dark:text-white">
-              Hi, I&apos;m April 👋
+              Hi, I&apos;m April ðŸ‘‹
             </h2>
             <p className="mt-1.5 text-sm text-brand-muted">
               {siteConfig.address.city}, {siteConfig.address.state}
@@ -45,7 +43,7 @@ export function AboutMeSection() {
                 real editor&apos;s eye before anything ships.
               </p>
               <p>
-                I also bring deep YMYL care to health, wellness, and beauty content — accuracy and
+                I also bring deep YMYL care to health, wellness, and beauty content â€” accuracy and
                 E-E-A-T signals aren&apos;t optional when people use search to make real decisions.
               </p>
               <p>
@@ -59,7 +57,7 @@ export function AboutMeSection() {
                 Continuing SEO education
               </p>
               <p className="text-sm font-medium text-brand-ink dark:text-white">
-                Ahrefs · Brian Dean (Backlinko)
+                Ahrefs Â· Brian Dean (Backlinko)
               </p>
             </div>
 
@@ -106,7 +104,7 @@ export function AboutMeSection() {
                 <div className="relative aspect-[4/5] w-full">
                   <Image
                     src="/images/april-portrait.jpg"
-                    alt="April Grace Degracia — SEO specialist and organic growth expert"
+                    alt="April Grace Degracia â€” SEO specialist and organic growth expert"
                     fill
                     className="object-cover object-top"
                     sizes="(max-width: 1024px) 90vw, 420px"

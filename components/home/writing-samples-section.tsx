@@ -1,5 +1,3 @@
-"use client";
-
 import type { ReactNode } from "react";
 import Link from "next/link";
 import { ArrowUpRight } from "lucide-react";
@@ -144,7 +142,7 @@ export function WritingSamplesSection() {
                   {sample.description}
                 </p>
                 <p className="mt-4 inline-flex items-center gap-1 text-xs font-semibold uppercase tracking-wide text-brand-muted">
-                  {sample.source} · {sample.year}
+                  {sample.source} Â· {sample.year}
                   <ArrowUpRight className="h-3.5 w-3.5" />
                 </p>
               </a>
@@ -198,7 +196,7 @@ export function WritingSamplesSection() {
               className="inline-flex shrink-0 items-center gap-1.5 rounded-full bg-[#5E2A5E] px-6 py-3 text-sm font-semibold text-white transition-opacity hover:opacity-90"
             >
               See SEO content writing
-              <span aria-hidden>→</span>
+              <span aria-hidden>â†’</span>
             </Link>
           </div>
         </FadeIn>

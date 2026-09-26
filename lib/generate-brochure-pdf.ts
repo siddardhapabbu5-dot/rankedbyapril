@@ -1,4 +1,4 @@
-import { jsPDF } from "jspdf";
+import type { jsPDF } from "jspdf";
 import { siteConfig } from "@/lib/site-config";
 import { resultSites } from "@/lib/data/results";
 import { processSteps } from "@/lib/data/content";
@@ -114,7 +114,8 @@ function pageFooter(
  * includes CEO photo, all services, results, process, and contact.
  */
 export async function downloadBrochurePdf() {
-  const doc = new jsPDF({
+  const { jsPDF: JsPDF } = await import("jspdf");
+  const doc = new JsPDF({
     orientation: "portrait",
     unit: "pt",
     format: "a4",

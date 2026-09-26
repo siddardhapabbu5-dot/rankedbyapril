@@ -3,7 +3,6 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
-import { AnimatePresence, motion } from "framer-motion";
 import { ChevronDown, Menu, X } from "lucide-react";
 import { Logo } from "@/components/layout/logo";
 import { LanguageSwitcher } from "@/components/layout/language-switcher";
@@ -195,14 +194,8 @@ export function Header() {
         </div>
       </div>
 
-      <AnimatePresence>
-        {open && (
-          <motion.div
-            initial={{ height: 0, opacity: 0 }}
-            animate={{ height: "auto", opacity: 1 }}
-            exit={{ height: 0, opacity: 0 }}
-            className="overflow-hidden border-t border-brand-ink/8 lg:hidden dark:border-white/10"
-          >
+      {open ? (
+        <div className="overflow-hidden border-t border-brand-ink/8 lg:hidden dark:border-white/10">
             <nav className="container-page flex flex-col gap-1 py-4" aria-label="Mobile">
               {navItems.map((item) => {
                 if (item.children) {
@@ -290,9 +283,8 @@ export function Header() {
                 {t.nav.hireMe}
               </Link>
             </nav>
-          </motion.div>
-        )}
-      </AnimatePresence>
+          </div>
+      ) : null}
     </header>
   );
 }

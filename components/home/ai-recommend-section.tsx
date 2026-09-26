@@ -1,5 +1,3 @@
-"use client";
-
 import Link from "next/link";
 import { Calendar, MessageSquare, Search, Sparkles } from "lucide-react";
 import { FadeIn, Stagger, StaggerItem } from "@/components/shared/section-heading";
@@ -21,7 +19,7 @@ const services = [
     ],
   },
   {
-    title: "AEO — Own the Answer",
+    title: "AEO â€” Own the Answer",
     icon: MessageSquare,
     iconBg: "bg-[#D1FAE5]",
     iconColor: "text-[#137333]",
@@ -32,10 +30,10 @@ const services = [
       "Featured snippet & AI Overview targets",
       "One clear, liftable answer per question",
     ],
-    link: { href: "/services/ai-seo", label: "AEO · GEO · AI search service →" },
+    link: { href: "/services/ai-seo", label: "AEO Â· GEO Â· AI search service â†’" },
   },
   {
-    title: "GEO — Get Named & Cited",
+    title: "GEO â€” Get Named & Cited",
     icon: Sparkles,
     iconBg: "bg-[#F5E6D3]",
     iconColor: "text-[#8B6914]",
@@ -46,7 +44,7 @@ const services = [
       "Content AI models can lift verbatim",
       "Citation tracking you can actually see",
     ],
-    link: { href: "/blog/seo-vs-aeo-vs-geo", label: "How ChatGPT picks brands →" },
+    link: { href: "/blog/seo-vs-aeo-vs-geo", label: "How ChatGPT picks brands â†’" },
   },
 ];
 
@@ -56,7 +54,7 @@ export function AiRecommendSection() {
       <div className="container-page">
         <FadeIn className="mx-auto max-w-3xl text-center">
           <p className="text-[11px] font-semibold uppercase tracking-[0.22em] text-[#5E2A5E] dark:text-[#D5C8D8]">
-            AEO · GEO · AI Search
+            AEO Â· GEO Â· AI Search
           </p>
           <h2 className="mt-3 font-display text-3xl font-bold tracking-tight text-brand-ink text-balance md:text-4xl dark:text-white">
             Want AI to <span className="italic text-[#5E2A5E] dark:text-[#D5C8D8]">recommend</span>{" "}
