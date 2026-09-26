@@ -1,4 +1,3 @@
-import Image from "next/image";
 import Link from "next/link";
 import { cn } from "@/lib/utils";
 
@@ -20,12 +19,14 @@ export function Logo({ className, href = "/", size = "sm" }: LogoProps) {
         className
       )}
     >
-      <Image
-        src="/brand-logo.png"
+      {/* eslint-disable-next-line @next/next/no-img-element -- static header asset avoids /_next/image latency */}
+      <img
+        src={isFooter ? "/brand-logo.png" : "/brand-logo-header.webp"}
         alt="rankedbyapril — SEO. Websites. AI Growth."
         width={isFooter ? 220 : 168}
         height={isFooter ? 220 : 168}
-        priority={!isFooter}
+        decoding="async"
+        fetchPriority={isFooter ? "low" : "high"}
         className={cn(
           "w-auto object-contain",
           isFooter ? "h-[7.5rem] sm:h-[8.5rem]" : "h-[3.75rem] sm:h-[4.25rem]"
