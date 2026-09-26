@@ -2,6 +2,7 @@
 
 import dynamic from "next/dynamic";
 import { useEffect, useState } from "react";
+import { LanguageProvider } from "@/components/providers/language-provider";
 
 const InstallAppButton = dynamic(
   () =>
@@ -65,13 +66,13 @@ export function DeferredChrome() {
   if (!ready) return null;
 
   return (
-    <>
+    <LanguageProvider>
       <InstallAppButton variant="banner" />
       <WhatsAppButton />
       <ServiceWorkerRegister />
       <HashScroll />
       <ScrollRestore />
       <AnalyticsClickTracker />
-    </>
+    </LanguageProvider>
   );
 }

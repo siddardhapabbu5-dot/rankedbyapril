@@ -2,6 +2,7 @@ import Link from "next/link";
 import { Logo } from "@/components/layout/logo";
 import { HeaderExtras } from "@/components/layout/header-extras";
 import { MobileNav } from "@/components/layout/mobile-nav";
+import { LanguageProvider } from "@/components/providers/language-provider";
 import { en } from "@/lib/i18n/dictionaries/en";
 
 const t = en;
@@ -85,22 +86,26 @@ export function Header() {
           >
             {t.nav.brochure}
           </Link>
-          <HeaderExtras />
+          <LanguageProvider>
+            <HeaderExtras />
+          </LanguageProvider>
           <Link
             href="/contact"
             className="hidden rounded-full bg-gradient-to-r from-[#E84A6A] to-[#F05A78] px-4 py-2.5 text-sm font-semibold text-white shadow-sm transition-transform hover:scale-[1.02] xl:inline-flex"
           >
             {t.nav.hireMe}
           </Link>
-          <MobileNav
-            navItems={navItems}
-            labels={{
-              openMenu: t.nav.openMenu,
-              closeMenu: t.nav.closeMenu,
-              brochure: t.nav.brochure,
-              hireMe: t.nav.hireMe,
-            }}
-          />
+          <LanguageProvider>
+            <MobileNav
+              navItems={navItems}
+              labels={{
+                openMenu: t.nav.openMenu,
+                closeMenu: t.nav.closeMenu,
+                brochure: t.nav.brochure,
+                hireMe: t.nav.hireMe,
+              }}
+            />
+          </LanguageProvider>
         </div>
       </div>
     </header>

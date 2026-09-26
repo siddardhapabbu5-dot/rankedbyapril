@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState, type ComponentType } from "react";
+import { LanguageProvider } from "@/components/providers/language-provider";
 
 /** Do not load below-fold section modules until after load+idle. */
 export function DeferredHomeBelow() {
@@ -32,5 +33,9 @@ export function DeferredHomeBelow() {
   }, []);
 
   if (!Comp) return null;
-  return <Comp />;
+  return (
+    <LanguageProvider>
+      <Comp />
+    </LanguageProvider>
+  );
 }

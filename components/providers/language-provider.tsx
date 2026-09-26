@@ -94,7 +94,11 @@ export function LanguageProvider({ children }: { children: ReactNode }) {
 export function useLanguage() {
   const ctx = useContext(LanguageContext);
   if (!ctx) {
-    throw new Error("useLanguage must be used within LanguageProvider");
+    return {
+      locale: defaultLocale,
+      setLocale: () => {},
+      t: en,
+    };
   }
   return ctx;
 }

@@ -2,7 +2,6 @@ import type { Metadata } from "next";
 import { Inter, Manrope } from "next/font/google";
 import { Header } from "@/components/layout/header";
 import { Footer } from "@/components/layout/footer";
-import { LanguageProvider } from "@/components/providers/language-provider";
 import { DeferredChrome } from "@/components/shared/deferred-chrome";
 import { JsonLd } from "@/components/seo/json-ld";
 import {
@@ -74,8 +73,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
             />
           </noscript>
         ) : null}
-        <LanguageProvider>
-          <a
+        <a
             href="#main-content"
             className="sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-4 focus:z-[100] focus:rounded-md focus:bg-brand-accent focus:px-4 focus:py-2 focus:text-white"
           >
@@ -101,7 +99,6 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
               />
             </>
           ) : null}
-        </LanguageProvider>
       </body>
     </html>
   );
