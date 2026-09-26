@@ -37,13 +37,13 @@ function BrandPill({ brand }: { brand: Brand }) {
 
 export function ClientLogos() {
   return (
-    <section className="border-y border-brand-ink/8 bg-[#FAF8F5] section-pad dark:border-white/10 dark:bg-brand-surface/40">
+    <section className="border-y border-brand-ink/8 bg-[#FAF8F5] py-8 dark:border-white/10 dark:bg-brand-surface/40 md:py-10">
       <div className="container-page">
           <p className="text-center text-[11px] font-semibold uppercase tracking-[0.2em] text-brand-muted">
             Some of the brands I&apos;ve ranked &amp; written for
           </p>
 
-          <div className="section-gap grid gap-8 lg:grid-cols-2 lg:gap-12">
+          <div className="mt-5 grid gap-6 lg:grid-cols-2 lg:gap-12">
             <div>
               <p className="text-[11px] font-semibold uppercase tracking-[0.18em] text-brand-ink dark:text-white">
                 Ecommerce · SEO &amp; content
@@ -66,11 +66,6 @@ export function ClientLogos() {
               </ul>
             </div>
           </div>
-
-          <p className="mt-8 text-center text-sm italic leading-relaxed text-brand-muted">
-            A sample, not the full list. I&apos;ve worked with 20+ more brands across ecommerce,
-            health, legal, and lifestyle. The numbers below tell that story.
-          </p>
       </div>
     </section>
   );

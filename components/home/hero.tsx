@@ -16,12 +16,7 @@ export function Hero() {
 
   return (
     <section className="relative overflow-hidden bg-background dark:bg-background">
-      <div
-        className="pointer-events-none absolute -left-40 top-10 h-[32rem] w-[32rem] rounded-full bg-brand-ink/5 dark:bg-brand-surface"
-        aria-hidden
-      />
-
-      <div className="container-page relative grid items-start gap-10 pb-14 pt-10 md:gap-12 md:pb-16 md:pt-12 lg:grid-cols-12">
+      <div className="container-page relative grid items-start gap-8 pb-10 pt-8 md:gap-12 md:pb-16 md:pt-12 lg:grid-cols-12">
         <div className="order-2 lg:order-1 lg:col-span-7 lg:pt-2">
           <HeroCopy
             fallback={

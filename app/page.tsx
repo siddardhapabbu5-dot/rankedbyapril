@@ -13,8 +13,8 @@ export const metadata = buildMetadata({
 });
 
 /**
- * Eager above-the-fold: Hero + Logos only (fast LCP / SI).
- * Results + remaining sections mount after load+idle.
+ * Eager: Hero + Logos (SSR for Speed Index).
+ * Results and below mount after load+idle (TBT / DOM).
  */
 export default function HomePage() {
   return (

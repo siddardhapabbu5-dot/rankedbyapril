@@ -18,7 +18,7 @@ function whenIdle(cb: () => void, timeout = 2500) {
 export function DeferredMount({
   children,
   minHeight = 480,
-  rootMargin = "80px",
+  rootMargin = "0px",
 }: {
   children: ReactNode;
   minHeight?: number;

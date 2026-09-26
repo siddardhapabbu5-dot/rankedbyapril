@@ -204,8 +204,6 @@ nav[aria-label="Primary"] a {
 */
 .section-pad {
   padding-block: 3.5rem; /* 56px */
-  content-visibility: auto;
-  contain-intrinsic-size: auto 520px;
 }
 
 @media (min-width: 768px) {
