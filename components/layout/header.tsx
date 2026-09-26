@@ -89,7 +89,7 @@ export function Header() {
   }
 
   return (
-    <header className="sticky top-0 z-50 bg-background/90 backdrop-blur-md dark:bg-background/90">
+    <header className="sticky top-0 z-50 bg-background/95 dark:bg-background/95">
       <div className="container-page flex h-[5.5rem] items-center gap-3 sm:h-[6rem] lg:gap-4">
         <div className="shrink-0">
           <Logo />

@@ -1,6 +1,6 @@
 import { Hero } from "@/components/home/hero";
 import { ClientLogos } from "@/components/home/client-logos";
-import { HomeBelowFold } from "@/components/home/home-below-fold";
+import { DeferredHomeBelow } from "@/components/home/deferred-home-below";
 import { JsonLd } from "@/components/seo/json-ld";
 import { faqSchema } from "@/lib/schema";
 import { homeFaqs } from "@/lib/data/content";
@@ -13,8 +13,8 @@ export const metadata = buildMetadata({
 });
 
 /**
- * Eager: Hero + Logos (SSR for Speed Index).
- * Results and below mount after load+idle (TBT / DOM).
+ * Eager: Hero + Logos (SSR for Speed Index / LCP).
+ * Everything else loads after load+idle.
  */
 export default function HomePage() {
   return (
@@ -22,7 +22,7 @@ export default function HomePage() {
       <JsonLd data={faqSchema(homeFaqs)} />
       <Hero />
       <ClientLogos />
-      <HomeBelowFold />
+      <DeferredHomeBelow />
     </>
   );
 }
